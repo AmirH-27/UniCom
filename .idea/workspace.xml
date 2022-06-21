@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update user dao">
+    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="fix checkUserEmail">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +39,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "spring.configuration.checksum": "29569c9bb081b96f066a63b2ad149243"
   },
   "keyToStringList": {
@@ -79,7 +79,7 @@
       <updated>1655759827150</updated>
       <workItem from="1655759829854" duration="101000" />
       <workItem from="1655761717950" duration="1182000" />
-      <workItem from="1655817018156" duration="1979000" />
+      <workItem from="1655817018156" duration="10816000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1655761962902</created>
@@ -102,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655797328380</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix checkUserEmail">
+      <created>1655819449514</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655819449514</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,27 +130,7 @@
     <MESSAGE value="init project" />
     <MESSAGE value="update user domain" />
     <MESSAGE value="update user dao" />
-    <option name="LAST_COMMIT_MESSAGE" value="update user dao" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserDao.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserDao.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserDao.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix checkUserEmail" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix checkUserEmail" />
   </component>
 </project>
