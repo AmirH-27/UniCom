@@ -3,7 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id = "dataSource">
+    <bean id="dataSource" class="com.mysql.cj.jdbc.MysqlDataSource">
+        <property name="databaseName" value="unicom"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/unicom" />
+        <property name="user" value="root"/>
+        <property name="password" value="root" />
+    </bean>
 
+    <bean id="userDao" class="apj.unicom.dao.UserDao">
+        <constructor-arg ref="dataSource"/>
     </bean>
 </beans>
