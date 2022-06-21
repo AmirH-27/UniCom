@@ -20,13 +20,10 @@ public class UserDao implements UserDaoUtil {
         return null;
     }
 
-    // TODO: 21/6/22 FIX THIS 
     @Override
     public boolean checkUserEmail(String userEmail) {
-        String sql = "SELECT user_id FROM users WHERE user_email = ?";
-        int st = jdbcTemplate.queryForObject(sql, Integer.class, userEmail);
-        boolean sss = (st==0);
-        return sss;
+        String sql = "SELECT COUNT(*) FROM users WHERE user_email = ?";
+        return jdbcTemplate.queryForObject(sql, Integer.class, userEmail) == 1;
     }
 
     @Override
