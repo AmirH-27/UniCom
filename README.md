@@ -85,3 +85,9 @@ User crude with communication channel.
 - [ ] 6. Invalid Input
    - Error Text Label `Error: Invalid TYPE`
    - OK Dialog Button `onClick()->close dialog
+
+# Database
+![image](https://user-images.githubusercontent.com/65022657/175108283-9241b8f6-0e8d-43a7-874c-47a6d3d4a3e3.png)
+
+
+
