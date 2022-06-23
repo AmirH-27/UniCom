@@ -6,7 +6,6 @@ public class User {
     private String userName;
     private boolean isPublic;
     private String userEmail;
-    private String emailDomain = "student.aiub.edu";
 
     public User(){ }
 
@@ -54,11 +53,7 @@ public class User {
         return userEmail;
     }
 
-    public void setUserEmail() {
-        userEmail = studentId + "@" + emailDomain;
-    }
-
-    public void setEmailDomain(String emailDomain) {
-        this.emailDomain = emailDomain;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

@@ -1,8 +1,11 @@
 package apj.unicom;
 
 import apj.unicom.dao.UserCredentialDao;
+import apj.unicom.dao.UserDao;
+import apj.unicom.domain.User;
 import apj.unicom.domain.UserCredential;
 import apj.unicom.implement.dao.UserCredentialDaoImp;
+import apj.unicom.implement.dao.UserDaoImp;
 import apj.unicom.implement.service.UserCredentialServiceImp;
 import apj.unicom.service.UserCredentialService;
 import apj.unicom.service.UserCredentialValidityService;
@@ -13,18 +16,21 @@ public class App
 {
     public static void main( String[] args )
     {
-        String userStudentId = "19-12345-2";
+        String userStudentId = "19-12945-2";
         String userName = "John";
         boolean isPublic = true;
-        String userPass = "12347";
+        String userPass = "12345";
         String confirmPass = "12345";
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
-        UserCredentialDao userCredentialDao = applicationContext.getBean("userCredentialDao", UserCredentialDaoImp.class);
 
-        UserCredential userCredential = new UserCredential();
-        UserCredentialService userCredentialService = new UserCredentialServiceImp(userCredential);
+        UserDao userDao = applicationContext.getBean("userDao", UserDaoImp.class);
+        UserCredentialDao userCredentialDao = applicationContext.getBean("userCredentialDao", UserCredentialDaoImp.class);
+        UserCredential userCredential = applicationContext.getBean("userCredential", UserCredential.class);
+        UserCredentialService userCredentialService = applicationContext.getBean("userCredentialService", UserCredentialServiceImp.class);
         UserCredentialValidityService validityService;
+
+        User user;
 
         //check if student id is already in use
         userCredential.setStudentId(userStudentId);
@@ -37,7 +43,8 @@ public class App
                 validityService = userCredentialService::isValidUserPass;
                 if(validityService.isValid()){
                     if(userCredentialDao.checkUserCredential(userCredential.getStudentId(),userCredential.getUserPass())){
-                        System.out.println("Login Successful");
+                        user = userDao.getUser(userCredential.getStudentId());
+                        System.out.println("Login Successful: " + user.getUserName());
                     }
                     else{
                         System.out.println("Login Failed");
@@ -58,7 +65,8 @@ public class App
                         (userCredentialService.isValidUserName() && userCredentialService.isValidUserPass() && userCredentialService.isValidConfirmPass());
                 if(validityService.isValid()){
                     if(userCredentialDao.registerUser(userCredential)){
-                        System.out.println("Register Successful");
+                        user = userDao.getUser(userCredential.getStudentId());
+                        System.out.println("Register Successful: " + user.getUserName());
                     }
                     else{
                         System.out.println("Register Failed");

@@ -13,4 +13,20 @@
     <bean id="userCredentialDao" class="apj.unicom.implement.dao.UserCredentialDaoImp">
         <constructor-arg ref="dataSource"/>
     </bean>
+
+    <bean id="userDao" class="apj.unicom.implement.dao.UserDaoImp">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="userCredential" class="apj.unicom.domain.UserCredential">
+        <constructor-arg name="emailDomain" value="student.aiub.edu"/>
+    </bean>
+
+    <bean id="userCredentialService" class="apj.unicom.implement.service.UserCredentialServiceImp">
+        <constructor-arg ref="userCredential"/>
+        <constructor-arg name="userNameLength" value="2"/>
+        <constructor-arg name="userPassLength" value="5"/>
+        <constructor-arg name="studentIdFormat" value="[0-9]{2}-[0-9]{5}-[0-9]{1}"/>
+    </bean>
+
 </beans>

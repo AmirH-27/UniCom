@@ -5,12 +5,15 @@ import apj.unicom.service.UserCredentialService;
 
 public class UserCredentialServiceImp implements UserCredentialService {
     private UserCredential userCredential;
-    private int userNameLength = 2;
-    private int userPassLength = 5;
-    private String studentIdFormat = "[0-9]{2}-[0-9]{5}-[0-9]{1}";
+    final private int userNameLength;
+    final private int userPassLength;
+    final private String studentIdFormat;
 
-    public UserCredentialServiceImp(UserCredential userCredential) {
+    public UserCredentialServiceImp(UserCredential userCredential, int userNameLength, int userPassLength, String studentIdFormat) {
         this.userCredential = userCredential;
+        this.userNameLength = userNameLength;
+        this.userPassLength = userPassLength;
+        this.studentIdFormat = studentIdFormat;
     }
 
     @Override
@@ -26,7 +29,6 @@ public class UserCredentialServiceImp implements UserCredentialService {
             if(!(!Character.isLetter(userCredential.getUserName().charAt(i))
                     || userCredential.getUserName().charAt(i) != '.'
                     || userCredential.getUserName().charAt(i) != ' ')) {
-                System.out.println("Has invalid char");
                 return false;
             }
         }
@@ -68,15 +70,4 @@ public class UserCredentialServiceImp implements UserCredentialService {
         return userCredential.getConfirmPass().equals(userCredential.getUserPass());
     }
 
-    public void setUserNameLength(int userNameLength) {
-        this.userNameLength = userNameLength;
-    }
-
-    public void setUserPassLength(int userPassLength) {
-        this.userPassLength = userPassLength;
-    }
-
-    public void setStudentIdFormat(String studentIdFormat) {
-        this.studentIdFormat = studentIdFormat;
-    }
 }

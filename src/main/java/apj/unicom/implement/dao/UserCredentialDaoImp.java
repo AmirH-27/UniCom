@@ -31,7 +31,7 @@ public class UserCredentialDaoImp implements UserCredentialDao {
         String sql = "INSERT INTO users (" +
                 "student_id," +
                 "user_name," +
-                "public, " +
+                "isPublic, " +
                 "user_email," +
                 "user_pass) VALUES (?,?,?,?,?)";
 

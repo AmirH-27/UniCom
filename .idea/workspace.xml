@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update user login registration backend">
-      <change beforePath="$PROJECT_DIR$/DBO/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBO/.idea/DBO.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBO/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBO/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBO/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="delete dbo">
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/UserCredential.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/UserCredential.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/service/UserCredentialServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/service/UserCredentialServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-context.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,7 +92,7 @@
       <workItem from="1655761717950" duration="1182000" />
       <workItem from="1655817018156" duration="11691000" />
       <workItem from="1655911968273" duration="343000" />
-      <workItem from="1655912320439" duration="28704000" />
+      <workItem from="1655912320439" duration="34888000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1655761962902</created>
@@ -131,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655992644511</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="delete dbo">
+      <created>1655992837890</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1655992837890</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +167,7 @@
     <MESSAGE value="fix checkUserEmail" />
     <MESSAGE value="updated readme" />
     <MESSAGE value="update user login registration backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="update user login registration backend" />
+    <MESSAGE value="delete dbo" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete dbo" />
   </component>
 </project>
