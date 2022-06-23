@@ -10,7 +10,7 @@
         <property name="password" value="root" />
     </bean>
 
-    <bean id="userDao" class="apj.unicom.dao.UserDao">
+    <bean id="userCredentialDao" class="apj.unicom.implement.dao.UserCredentialDaoImp">
         <constructor-arg ref="dataSource"/>
     </bean>
 </beans>

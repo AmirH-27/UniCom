@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="fix checkUserEmail">
+    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="updated readme">
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/UserCredential.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/service/UserCredentialServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/service/UserCredentialService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/service/UserCredentialValidityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserCredentialDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/utilities/UserDaoUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-context.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,22 +44,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "29569c9bb081b96f066a63b2ad149243"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;29569c9bb081b96f066a63b2ad149243&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apj.unicom.App" />
@@ -70,6 +81,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBeansView">
+    <option name="beanDetailsProportion" value="0.3" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="" />
@@ -79,7 +93,9 @@
       <updated>1655759827150</updated>
       <workItem from="1655759829854" duration="101000" />
       <workItem from="1655761717950" duration="1182000" />
-      <workItem from="1655817018156" duration="10816000" />
+      <workItem from="1655817018156" duration="11691000" />
+      <workItem from="1655911968273" duration="343000" />
+      <workItem from="1655912320439" duration="28188000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1655761962902</created>
@@ -109,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655819449514</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated readme">
+      <created>1655827948697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655827948697</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +154,7 @@
     <MESSAGE value="update user domain" />
     <MESSAGE value="update user dao" />
     <MESSAGE value="fix checkUserEmail" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix checkUserEmail" />
+    <MESSAGE value="updated readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated readme" />
   </component>
 </project>

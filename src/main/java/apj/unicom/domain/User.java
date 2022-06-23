@@ -1,20 +1,21 @@
 package apj.unicom.domain;
 
 public class User {
-    int userId;
-    String studentId;
-    String userName;
-    String userEmail;
-    String userPass;
+    private int userId;
+    private String studentId;
+    private String userName;
+    private boolean isPublic;
+    private String userEmail;
+    private String emailDomain = "student.aiub.edu";
 
-    public User(){}
+    public User(){ }
 
-    public User(int userId, String studentId, String userName, String userEmail, String userPass) {
+    public User(int userId, String studentId, String userName, boolean isPublic, String userEmail) {
         this.userId = userId;
         this.studentId = studentId;
         this.userName = userName;
+        this.isPublic = isPublic;
         this.userEmail = userEmail;
-        this.userPass = userPass;
     }
 
     public int getUserId() {
@@ -41,19 +42,23 @@ public class User {
         this.userName = userName;
     }
 
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
+    }
+
     public String getUserEmail() {
         return userEmail;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setUserEmail() {
+        userEmail = studentId + "@" + emailDomain;
     }
 
-    public String getUserPass() {
-        return userPass;
-    }
-
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
+    public void setEmailDomain(String emailDomain) {
+        this.emailDomain = emailDomain;
     }
 }
