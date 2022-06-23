@@ -16,7 +16,7 @@ public class App
         String userStudentId = "19-12345-2";
         String userName = "John";
         boolean isPublic = true;
-        String userPass = "12345";
+        String userPass = "12347";
         String confirmPass = "12345";
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
