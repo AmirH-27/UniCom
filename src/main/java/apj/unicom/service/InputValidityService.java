@@ -1,6 +1,6 @@
 package apj.unicom.service;
 
 @FunctionalInterface
-public interface UserCredentialValidityService {
+public interface InputValidityService {
     boolean isValid();
 }

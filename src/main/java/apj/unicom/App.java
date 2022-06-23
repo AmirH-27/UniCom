@@ -8,7 +8,7 @@ import apj.unicom.implement.dao.UserCredentialDaoImp;
 import apj.unicom.implement.dao.UserDaoImp;
 import apj.unicom.implement.service.UserCredentialServiceImp;
 import apj.unicom.service.UserCredentialService;
-import apj.unicom.service.UserCredentialValidityService;
+import apj.unicom.service.InputValidityService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -28,7 +28,7 @@ public class App
         UserCredentialDao userCredentialDao = applicationContext.getBean("userCredentialDao", UserCredentialDaoImp.class);
         UserCredential userCredential = applicationContext.getBean("userCredential", UserCredential.class);
         UserCredentialService userCredentialService = applicationContext.getBean("userCredentialService", UserCredentialServiceImp.class);
-        UserCredentialValidityService validityService;
+        InputValidityService validityService;
 
         User user;
 
@@ -62,7 +62,9 @@ public class App
                 userCredential.setUserPass(userPass);
                 userCredential.setConfirmPass(confirmPass);
                 validityService = () ->
-                        (userCredentialService.isValidUserName() && userCredentialService.isValidUserPass() && userCredentialService.isValidConfirmPass());
+                        (userCredentialService.isValidUserName()
+                                && userCredentialService.isValidUserPass()
+                                && userCredentialService.isValidConfirmPass());
                 if(validityService.isValid()){
                     if(userCredentialDao.registerUser(userCredential)){
                         user = userDao.getUser(userCredential.getStudentId());
