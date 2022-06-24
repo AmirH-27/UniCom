@@ -13,7 +13,7 @@ User crude with communication channel.
 
 ### View
 
-- [ ] 1. Login/Registration
+- [X] 1. Login/Registration
    - User Email Field `must be aiub student email`
    - Next Button
    - Password Field (Hidden) `must be equal or more than 5 characters`
