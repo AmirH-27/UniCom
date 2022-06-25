@@ -18,13 +18,16 @@ public class UserCredentialServiceImp implements UserCredentialService {
 
     @Override
     public boolean isValidUserName() {
+        if(userCredential.getUserName().isEmpty()){
+            return false;
+        }
+
         String[] userNameArray = userCredential.getUserName().split(" ");
         for(String userName : userNameArray) {
             if(userName.length() < userNameLength) {
                 return false;
             }
         }
-
         for(int i = 0; i < userCredential.getUserName().length(); i++) {
             if(!(!Character.isLetter(userCredential.getUserName().charAt(i))
                     || userCredential.getUserName().charAt(i) != '.'
@@ -32,7 +35,6 @@ public class UserCredentialServiceImp implements UserCredentialService {
                 return false;
             }
         }
-
         for (String userName : userNameArray) {
             if (!Character.isUpperCase(userName.charAt(0))) {
                 return false;
@@ -44,15 +46,17 @@ public class UserCredentialServiceImp implements UserCredentialService {
 
     @Override
     public boolean isValidUserStudentId() {
-        if (!userCredential.getStudentId().matches(studentIdFormat)) {
+        if(userCredential.getStudentId().isEmpty()) {
             return false;
         }
-
-        return true;
+        return userCredential.getStudentId().matches(studentIdFormat);
     }
 
     @Override
     public boolean isValidUserPass() {
+        if(userCredential.getUserPass().isEmpty()) {
+            return false;
+        }
         if (userCredential.getUserPass().length() < userPassLength) {
             return false;
         }
@@ -67,6 +71,9 @@ public class UserCredentialServiceImp implements UserCredentialService {
 
     @Override
     public boolean isValidConfirmPass() {
+        if (userCredential.getConfirmPass().isEmpty()) {
+            return false;
+        }
         return userCredential.getConfirmPass().equals(userCredential.getUserPass());
     }
 
