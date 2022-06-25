@@ -135,9 +135,7 @@ public class LoginView extends JFrame{
             }
         });
 
-        btnBack.addActionListener(e -> {
-            back();
-        });
+        btnBack.addActionListener(e -> back());
     }
 
     private void checkStudentId(){
