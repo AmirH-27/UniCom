@@ -1,8 +1,10 @@
 package apj.unicom.service;
 
+import apj.unicom.data.Response;
+
 public interface UserCredentialService {
-    boolean isValidUserName();
-    boolean isValidUserStudentId();
-    boolean isValidUserPass();
-    boolean isValidConfirmPass();
+    Response isValidUserName();
+    Response isValidUserStudentId();
+    Response isValidUserPass();
+    Response isValidConfirmPass();
 }
