@@ -1,6 +1,7 @@
 package apj.unicom.implement.dao;
 
 import apj.unicom.dao.UserDao;
+import apj.unicom.data.SqlQuery;
 import apj.unicom.domain.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -15,9 +16,8 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public User getUser(String studentId) {
-        String sql = "SELECT user_id, student_id, user_name, isPublic, user_email FROM users WHERE student_id = ?";
         return jdbcTemplate.queryForObject(
-                sql,
+                SqlQuery.GET_USER.getQuery(),
                 ((rs, rowNum) -> new User(
                         rs.getInt("user_id"),
                         rs.getString("student_id"),

@@ -1,6 +1,8 @@
 package apj.unicom.implement.dao;
 
 import apj.unicom.dao.UserCredentialDao;
+import apj.unicom.data.Response;
+import apj.unicom.data.SqlQuery;
 import apj.unicom.domain.UserCredential;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -15,45 +17,38 @@ public class UserCredentialDaoImp implements UserCredentialDao {
     }
 
     @Override
-    public boolean checkUserStudentId(String userStudentId) {
-        String sql = "SELECT COUNT(*) FROM users WHERE student_id = ?";
-        return jdbcTemplate.queryForObject(sql, Integer.class, userStudentId) == 1;
+    public Response checkUserStudentId(String userStudentId) {
+        return jdbcTemplate.queryForObject(SqlQuery.CHECK_STUDENT_ID.getQuery(), Integer.class, userStudentId) == 1
+                ? Response.SUCCESS : Response.STUDENT_ID_NOT_EXIST;
     }
 
     @Override
-    public boolean checkUserCredential(String userStudentId, String userPass) {
-        String sql = "SELECT COUNT(*) FROM users WHERE student_id = ? AND user_pass = ?";
-        return jdbcTemplate.queryForObject(sql, Integer.class, userStudentId, userPass) == 1;
+    public Response checkUserCredential(String userStudentId, String userPass) {
+        return jdbcTemplate.queryForObject(SqlQuery.CHECK_USER_PASS.getQuery(), Integer.class, userStudentId, userPass) == 1
+                ? Response.SUCCESS : Response.USER_PASS_NOT_MATCH;
     }
 
     @Override
-    public boolean registerUser(UserCredential userCredential) {
-        String sql = "INSERT INTO users (" +
-                "student_id," +
-                "user_name," +
-                "isPublic, " +
-                "user_email," +
-                "user_pass) VALUES (?,?,?,?,?)";
-
+    public Response registerUser(UserCredential userCredential) {
         int insertStatus = jdbcTemplate.update(
-                sql,
+                SqlQuery.REGISTER_USER.getQuery(),
                 userCredential.getStudentId(),
                 userCredential.getUserName(),
                 userCredential.isPublic(),
                 userCredential.getUserEmail(),
                 userCredential.getUserPass()
         );
-        return insertStatus==1;
+        return insertStatus==1 ? Response.SUCCESS : Response.REGISTRATION_FAIL;
     }
 
     @Override
-    public boolean updateUser(UserCredential userCredential) {
-        return false;
+    public Response updateUser(UserCredential userCredential) {
+        return Response.SUCCESS;
     }
 
     @Override
-    public boolean deleteUser(UserCredential userCredential) {
-        return false;
+    public Response deleteUser(UserCredential userCredential) {
+        return Response.SUCCESS;
     }
 }
 

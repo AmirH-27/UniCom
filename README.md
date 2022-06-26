@@ -13,19 +13,21 @@ User crude with communication channel.
 
 ### View
 
-- [ ] 1. Login/Registration
-   - User Email Field `must be aiub student email`
+- [x] 1. Login/Registration
+   - Title Label `Welcome or Login or Register`
+   - User Student ID Field `must be aiub student id`
    - Next Button
    - Password Field (Hidden) `must be equal or more than 5 characters`
    - User Name Field (Hidden) `must be more than 1 character`
    - Confirm Password Field (Hidden)
+   - Back Button `onClick()-> welcome() if in login or register mode else-> show exit dialog`
    
     ```
-    Flow: 1->2->if(validEmail)
+    Flow: 1->2->if(validId)
                     if(registeredUser)->3(visible)->2->login->move to Home view
                     else->4,3,5(visible)->2->if(validInput)->register->move to Home view
                                              else->show invalid input dialog
-                else->show invalid email dialog
+                else->show invalid id dialog
     ```
 
 - [ ] 2. Home

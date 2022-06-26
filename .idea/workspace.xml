@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="add user dao">
-      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/LoginFormPosition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/service/PositionBoundServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/service/PositionBoundService.java" afterDir="false" />
+    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update login view">
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserCredentialDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/UserCredentialDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/LoginFormPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/LoginFormPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserDaoImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/service/UserCredentialServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/service/UserCredentialServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/service/InputValidityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/service/InputValidityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/service/UserCredentialService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/service/UserCredentialService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/LoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -92,6 +96,9 @@
       <workItem from="1655817018156" duration="11691000" />
       <workItem from="1655911968273" duration="343000" />
       <workItem from="1655912320439" duration="35356000" />
+      <workItem from="1656187344487" duration="294000" />
+      <workItem from="1656187666433" duration="1123000" />
+      <workItem from="1656198937961" duration="8936000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1655761962902</created>
@@ -149,7 +156,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655999078695</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update login view">
+      <created>1656116066081</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656116066081</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update login view">
+      <created>1656116266650</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656116266650</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +196,7 @@
     <MESSAGE value="update user login registration backend" />
     <MESSAGE value="delete dbo" />
     <MESSAGE value="add user dao" />
-    <option name="LAST_COMMIT_MESSAGE" value="add user dao" />
+    <MESSAGE value="update login view" />
+    <option name="LAST_COMMIT_MESSAGE" value="update login view" />
   </component>
 </project>

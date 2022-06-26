@@ -3,6 +3,7 @@ package apj.unicom.view;
 import apj.unicom.dao.UserCredentialDao;
 import apj.unicom.dao.UserDao;
 import apj.unicom.data.LoginFormPosition;
+import apj.unicom.data.Response;
 import apj.unicom.domain.User;
 import apj.unicom.domain.UserCredential;
 import apj.unicom.implement.dao.UserCredentialDaoImp;
@@ -18,16 +19,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import javax.swing.*;
 import java.awt.*;
 
-public class LoginView extends JFrame{
+public class LoginView extends JFrame {
 
-    private enum ButtonState{
+    private enum ButtonState {
         NEXT,
         LOGIN,
         REGISTER
     }
 
     private Container container;
-    private JLabel lblStudentId, lblUserName, lblUserPass, lblConfirmPass, lblPrivacy;
+    private JLabel lblStudentId, lblUserName, lblUserPass, lblConfirmPass, lblPrivacy, lblTitle;
     private JTextField txtStudentId, txtUserName;
     private JPasswordField txtPass, txtConfirmPass;
     private JButton btnNext, btnBack;
@@ -47,8 +48,9 @@ public class LoginView extends JFrame{
     private UserDao userDao;
     private User user;
     private InputValidityService validityService;
+    private Response response;
 
-    private void initializeView(){
+    private void initializeView() {
         setTitle("Welcome to UniCom");
         setSize(LoginFormPosition.FORM_POSITION.width, LoginFormPosition.FORM_POSITION.height);
         setResizable(false);
@@ -57,6 +59,9 @@ public class LoginView extends JFrame{
 
         container = getContentPane();
         container.setLayout(null);
+
+        lblTitle = new JLabel("Welcome");
+        lblTitle.setFont(new Font("Arial", Font.BOLD, 20));
 
         lblStudentId = new JLabel("Student ID: ", SwingConstants.RIGHT);
         lblUserName = new JLabel("User Name: ", SwingConstants.RIGHT);
@@ -86,6 +91,7 @@ public class LoginView extends JFrame{
         buttonPositionBoundService = new PositionBoundServiceImp<>();
         radioButtonPositionBoundService = new PositionBoundServiceImp<>();
 
+        labelPositionBoundService.setPosition(lblTitle, LoginFormPosition.TITLE_LABEL);
         labelPositionBoundService.setPosition(lblStudentId, LoginFormPosition.STUDENT_ID_LABEL);
         labelPositionBoundService.setPosition(lblUserName, LoginFormPosition.USER_NAME_LABEL);
         labelPositionBoundService.setPosition(lblUserPass, LoginFormPosition.LOGIN_PASSWORD_LABEL);
@@ -102,13 +108,14 @@ public class LoginView extends JFrame{
         radioButtonPositionBoundService.setPosition(rbPublic, LoginFormPosition.PUBLIC_RADIO_BUTTON);
         radioButtonPositionBoundService.setPosition(rbPrivate, LoginFormPosition.PRIVATE_RADIO_BUTTON);
 
+        container.add(lblTitle);
         container.add(lblStudentId);
         container.add(txtStudentId);
         container.add(btnNext);
         container.add(btnBack);
     }
 
-    private void initializeComponents(){
+    private void initializeComponents() {
         applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
         userDao = applicationContext.getBean("userDao", UserDaoImp.class);
         userCredentialDao = applicationContext.getBean("userCredentialDao", UserCredentialDaoImp.class);
@@ -116,13 +123,13 @@ public class LoginView extends JFrame{
         userCredentialService = applicationContext.getBean("userCredentialService", UserCredentialServiceImp.class);
     }
 
-    public LoginView(){
+    public LoginView() {
 
         initializeComponents();
         initializeView();
 
         btnNext.addActionListener(e -> {
-            switch (currentButtonState){
+            switch (currentButtonState) {
                 case NEXT:
                     checkStudentId();
                     break;
@@ -138,20 +145,25 @@ public class LoginView extends JFrame{
         btnBack.addActionListener(e -> back());
     }
 
-    private void checkStudentId(){
+    private void checkStudentId() {
         userCredential.setStudentId(txtStudentId.getText());
         validityService = userCredentialService::isValidUserStudentId;
-        if(validityService.isValid()){
-            if(userCredentialDao.checkUserStudentId(txtStudentId.getText())){
+        response = validityService.isValid();
+        if (response == Response.SUCCESS) {
+            response = userCredentialDao.checkUserStudentId(txtStudentId.getText());
+            if (response == Response.SUCCESS) {
+                txtStudentId.setEditable(false);
                 container.add(lblUserPass);
                 container.add(txtPass);
                 labelPositionBoundService.setPosition(lblUserPass, LoginFormPosition.LOGIN_PASSWORD_LABEL);
                 passwordFieldPositionBoundService.setPosition(txtPass, LoginFormPosition.LOGIN_PASSWORD_TEXT_FIELD);
                 buttonPositionBoundService.setPosition(btnNext, LoginFormPosition.LOGIN_BUTTON);
+                lblTitle.setText("Login");
                 btnNext.setText("Login");
                 btnBack.setText("Back");
                 currentButtonState = ButtonState.LOGIN;
-            } else{
+            } else {
+                txtStudentId.setEditable(false);
                 container.add(lblUserName);
                 container.add(txtUserName);
                 container.add(lblUserPass);
@@ -164,62 +176,82 @@ public class LoginView extends JFrame{
                 labelPositionBoundService.setPosition(lblUserPass, LoginFormPosition.REGISTER_PASSWORD_LABEL);
                 passwordFieldPositionBoundService.setPosition(txtPass, LoginFormPosition.REGISTER_PASSWORD_TEXT_FIELD);
                 buttonPositionBoundService.setPosition(btnNext, LoginFormPosition.REGISTER_BUTTON);
+                lblTitle.setText("Register");
                 btnNext.setText("Register");
                 btnBack.setText("Back");
                 currentButtonState = ButtonState.REGISTER;
             }
             repaint();
             revalidate();
-        } else{
-            JOptionPane.showMessageDialog(container, "Invalid Student ID");
+        } else {
+            JOptionPane.showMessageDialog(container, response.getMessage());
         }
     }
 
-    private void login(){
+    private void login() {
         userCredential.setUserPass(String.valueOf(txtPass.getPassword()));
         validityService = userCredentialService::isValidUserPass;
-        if(validityService.isValid()){
-            if(userCredentialDao.checkUserCredential(userCredential.getStudentId(), userCredential.getUserPass())){
+        response = validityService.isValid();
+        if (response == Response.SUCCESS) {
+            response = userCredentialDao.checkUserCredential(userCredential.getStudentId(), userCredential.getUserPass());
+            if (response == Response.SUCCESS) {
                 user = userDao.getUser(userCredential.getStudentId());
                 dispose();
                 new HomeView(user);
-            } else{
-                JOptionPane.showMessageDialog(container, "Wrong Password");
+            } else {
+                JOptionPane.showMessageDialog(container, response.getMessage());
             }
-        } else{
-            JOptionPane.showMessageDialog(container, "Invalid Password");
+        } else {
+            JOptionPane.showMessageDialog(container, response.getMessage());
         }
     }
 
-    private void register(){
+    private void register() {
         userCredential.setUserEmail();
         userCredential.setUserName(txtUserName.getText());
         userCredential.setUserPass(String.valueOf(txtPass.getPassword()));
         userCredential.setConfirmPass(String.valueOf(txtConfirmPass.getPassword()));
         userCredential.setPublic(rbPublic.isSelected());
         validityService = () ->
-                (userCredentialService.isValidUserName()
-                        && userCredentialService.isValidUserPass()
-                        && userCredentialService.isValidConfirmPass());
-        if(validityService.isValid()){
-            if(userCredentialDao.checkUserCredential(userCredential.getStudentId(), userCredential.getUserPass())){
-                JOptionPane.showMessageDialog(container, "Student ID Already Exists");
-            } else{
-                userCredentialDao.registerUser(userCredential);
+                (userCredentialService.isValidUserName() == Response.SUCCESS
+                        && userCredentialService.isValidUserPass() == Response.SUCCESS
+                        && userCredentialService.isValidConfirmPass() == Response.SUCCESS)
+                        ? Response.SUCCESS : Response.FAILURE;
+        response = validityService.isValid();
+        if (response == Response.SUCCESS) {
+            response = userCredentialDao.registerUser(userCredential);
+            if (response == Response.SUCCESS) {
                 user = userDao.getUser(userCredential.getStudentId());
                 dispose();
                 new HomeView(user);
+            } else {
+                JOptionPane.showMessageDialog(container, response.getMessage());
             }
-        } else{
-            JOptionPane.showMessageDialog(container, "Invalid Information");
+        } else {
+            String message = "";
+            response = userCredentialService.isValidUserName();
+            if (userCredentialService.isValidUserName() != Response.SUCCESS) {
+                message += response.getMessage() + "\n";
+            }
+            response = userCredentialService.isValidUserPass();
+            if (userCredentialService.isValidUserPass() != Response.SUCCESS) {
+                message += response.getMessage() + "\n";
+            }
+            response = userCredentialService.isValidConfirmPass();
+            if (userCredentialService.isValidConfirmPass() != Response.SUCCESS) {
+                message += response.getMessage() + "\n";
+            }
+            JOptionPane.showMessageDialog(container, message);
         }
     }
 
-    private void back(){
-        if(currentButtonState == ButtonState.LOGIN){
+    private void back() {
+        if (currentButtonState == ButtonState.LOGIN) {
+            txtStudentId.setEditable(true);
             container.remove(lblUserPass);
             container.remove(txtPass);
-        } else if(currentButtonState== ButtonState.REGISTER){
+        } else if (currentButtonState == ButtonState.REGISTER) {
+            txtStudentId.setEditable(true);
             container.remove(lblUserName);
             container.remove(txtUserName);
             container.remove(lblUserPass);
@@ -229,9 +261,17 @@ public class LoginView extends JFrame{
             container.remove(lblPrivacy);
             container.remove(rbPublic);
             container.remove(rbPrivate);
-        } else{
-            System.exit(0);
+        } else {
+            int option = JOptionPane.showConfirmDialog(
+                    container,
+                    "Are you sure you want to exit?",
+                    "Exit",
+                    JOptionPane.YES_NO_OPTION);
+            if (option == JOptionPane.YES_OPTION) {
+                System.exit(0);
+            }
         }
+        lblTitle.setText("Welcome");
         btnBack.setText("Close");
         btnNext.setText("Next");
         buttonPositionBoundService.setPosition(btnNext, LoginFormPosition.NEXT_BUTTON);
