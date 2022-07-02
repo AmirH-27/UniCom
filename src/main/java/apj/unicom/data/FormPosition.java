@@ -1,6 +1,6 @@
 package apj.unicom.data;
 
-public enum LoginFormPosition {
+public enum FormPosition {
 
     FORM_POSITION(0, 0, 800, 600),
 
@@ -31,7 +31,7 @@ public enum LoginFormPosition {
     final public int width;
     final public int height;
 
-    LoginFormPosition(int x, int y, int width, int height) {
+    FormPosition(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;

@@ -2,7 +2,7 @@ package apj.unicom.view;
 
 import apj.unicom.dao.UserCredentialDao;
 import apj.unicom.dao.UserDao;
-import apj.unicom.data.LoginFormPosition;
+import apj.unicom.data.FormPosition;
 import apj.unicom.data.Response;
 import apj.unicom.domain.User;
 import apj.unicom.domain.UserCredential;
@@ -52,7 +52,7 @@ public class LoginView extends JFrame {
 
     private void initializeView() {
         setTitle("Welcome to UniCom");
-        setSize(LoginFormPosition.FORM_POSITION.width, LoginFormPosition.FORM_POSITION.height);
+        setSize(FormPosition.FORM_POSITION.width, FormPosition.FORM_POSITION.height);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -91,22 +91,22 @@ public class LoginView extends JFrame {
         buttonPositionBoundService = new PositionBoundServiceImp<>();
         radioButtonPositionBoundService = new PositionBoundServiceImp<>();
 
-        labelPositionBoundService.setPosition(lblTitle, LoginFormPosition.TITLE_LABEL);
-        labelPositionBoundService.setPosition(lblStudentId, LoginFormPosition.STUDENT_ID_LABEL);
-        labelPositionBoundService.setPosition(lblUserName, LoginFormPosition.USER_NAME_LABEL);
-        labelPositionBoundService.setPosition(lblUserPass, LoginFormPosition.LOGIN_PASSWORD_LABEL);
-        labelPositionBoundService.setPosition(lblConfirmPass, LoginFormPosition.CONFIRM_PASSWORD_LABEL);
-        labelPositionBoundService.setPosition(lblPrivacy, LoginFormPosition.PRIVACY_LABEL);
+        labelPositionBoundService.setPosition(lblTitle, FormPosition.TITLE_LABEL);
+        labelPositionBoundService.setPosition(lblStudentId, FormPosition.STUDENT_ID_LABEL);
+        labelPositionBoundService.setPosition(lblUserName, FormPosition.USER_NAME_LABEL);
+        labelPositionBoundService.setPosition(lblUserPass, FormPosition.LOGIN_PASSWORD_LABEL);
+        labelPositionBoundService.setPosition(lblConfirmPass, FormPosition.CONFIRM_PASSWORD_LABEL);
+        labelPositionBoundService.setPosition(lblPrivacy, FormPosition.PRIVACY_LABEL);
 
-        textFieldPositionBoundService.setPosition(txtStudentId, LoginFormPosition.STUDENT_ID_TEXT_FIELD);
-        textFieldPositionBoundService.setPosition(txtUserName, LoginFormPosition.USER_NAME_TEXT_FIELD);
-        passwordFieldPositionBoundService.setPosition(txtPass, LoginFormPosition.LOGIN_PASSWORD_TEXT_FIELD);
-        passwordFieldPositionBoundService.setPosition(txtConfirmPass, LoginFormPosition.CONFIRM_PASSWORD_TEXT_FIELD);
+        textFieldPositionBoundService.setPosition(txtStudentId, FormPosition.STUDENT_ID_TEXT_FIELD);
+        textFieldPositionBoundService.setPosition(txtUserName, FormPosition.USER_NAME_TEXT_FIELD);
+        passwordFieldPositionBoundService.setPosition(txtPass, FormPosition.LOGIN_PASSWORD_TEXT_FIELD);
+        passwordFieldPositionBoundService.setPosition(txtConfirmPass, FormPosition.CONFIRM_PASSWORD_TEXT_FIELD);
 
-        buttonPositionBoundService.setPosition(btnNext, LoginFormPosition.NEXT_BUTTON);
-        buttonPositionBoundService.setPosition(btnBack, LoginFormPosition.BACK_BUTTON);
-        radioButtonPositionBoundService.setPosition(rbPublic, LoginFormPosition.PUBLIC_RADIO_BUTTON);
-        radioButtonPositionBoundService.setPosition(rbPrivate, LoginFormPosition.PRIVATE_RADIO_BUTTON);
+        buttonPositionBoundService.setPosition(btnNext, FormPosition.NEXT_BUTTON);
+        buttonPositionBoundService.setPosition(btnBack, FormPosition.BACK_BUTTON);
+        radioButtonPositionBoundService.setPosition(rbPublic, FormPosition.PUBLIC_RADIO_BUTTON);
+        radioButtonPositionBoundService.setPosition(rbPrivate, FormPosition.PRIVATE_RADIO_BUTTON);
 
         container.add(lblTitle);
         container.add(lblStudentId);
@@ -155,9 +155,9 @@ public class LoginView extends JFrame {
                 txtStudentId.setEditable(false);
                 container.add(lblUserPass);
                 container.add(txtPass);
-                labelPositionBoundService.setPosition(lblUserPass, LoginFormPosition.LOGIN_PASSWORD_LABEL);
-                passwordFieldPositionBoundService.setPosition(txtPass, LoginFormPosition.LOGIN_PASSWORD_TEXT_FIELD);
-                buttonPositionBoundService.setPosition(btnNext, LoginFormPosition.LOGIN_BUTTON);
+                labelPositionBoundService.setPosition(lblUserPass, FormPosition.LOGIN_PASSWORD_LABEL);
+                passwordFieldPositionBoundService.setPosition(txtPass, FormPosition.LOGIN_PASSWORD_TEXT_FIELD);
+                buttonPositionBoundService.setPosition(btnNext, FormPosition.LOGIN_BUTTON);
                 lblTitle.setText("Login");
                 btnNext.setText("Login");
                 btnBack.setText("Back");
@@ -173,9 +173,9 @@ public class LoginView extends JFrame {
                 container.add(lblPrivacy);
                 container.add(rbPublic);
                 container.add(rbPrivate);
-                labelPositionBoundService.setPosition(lblUserPass, LoginFormPosition.REGISTER_PASSWORD_LABEL);
-                passwordFieldPositionBoundService.setPosition(txtPass, LoginFormPosition.REGISTER_PASSWORD_TEXT_FIELD);
-                buttonPositionBoundService.setPosition(btnNext, LoginFormPosition.REGISTER_BUTTON);
+                labelPositionBoundService.setPosition(lblUserPass, FormPosition.REGISTER_PASSWORD_LABEL);
+                passwordFieldPositionBoundService.setPosition(txtPass, FormPosition.REGISTER_PASSWORD_TEXT_FIELD);
+                buttonPositionBoundService.setPosition(btnNext, FormPosition.REGISTER_BUTTON);
                 lblTitle.setText("Register");
                 btnNext.setText("Register");
                 btnBack.setText("Back");
@@ -274,7 +274,7 @@ public class LoginView extends JFrame {
         lblTitle.setText("Welcome");
         btnBack.setText("Close");
         btnNext.setText("Next");
-        buttonPositionBoundService.setPosition(btnNext, LoginFormPosition.NEXT_BUTTON);
+        buttonPositionBoundService.setPosition(btnNext, FormPosition.NEXT_BUTTON);
         currentButtonState = ButtonState.NEXT;
         repaint();
         revalidate();
