@@ -11,6 +11,13 @@ public enum SqlQuery {
             "user_email," +
             "user_pass) VALUES (?,?,?,?,?)"),
 
+    UPDATE_USER("UPDATE users (" +
+            "student_id," +
+            "user_name," +
+            "isPublic, " +
+            "user_email," +
+            "user_pass) VALUES (?,?,?,?,?) WHERE student_id = ?"),
+
     //UserDao
     GET_USER("SELECT user_id, student_id, user_name, isPublic, user_email FROM users WHERE student_id = ?");
 

@@ -20,7 +20,10 @@ public enum Response {
     //Login Responses - User Credential Dao
     STUDENT_ID_NOT_EXIST("Student ID not exist"),
     USER_PASS_NOT_MATCH("User Pass not match"),
-    REGISTRATION_FAIL("Registration Fail");
+    REGISTRATION_FAIL("Registration Fail"),
+
+    //Update User Responses - User Credential Dao
+    UPDATE_FAIL("Update Fail");
 
     private final String message;
 

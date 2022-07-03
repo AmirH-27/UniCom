@@ -43,7 +43,16 @@ public class UserCredentialDaoImp implements UserCredentialDao {
 
     @Override
     public Response updateUser(UserCredential userCredential) {
-        return Response.SUCCESS;
+        int updateStatus = jdbcTemplate.update(
+                SqlQuery.UPDATE_USER.getQuery(),
+                userCredential.getStudentId(),
+                userCredential.getUserName(),
+                userCredential.isPublic(),
+                userCredential.getUserEmail(),
+                userCredential.getUserPass(),
+                userCredential.getStudentId()
+        );
+        return updateStatus == 1 ? Response.SUCCESS : Response.UPDATE_FAIL;
     }
 
     @Override

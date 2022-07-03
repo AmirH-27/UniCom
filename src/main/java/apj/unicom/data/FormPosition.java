@@ -22,9 +22,15 @@ public enum FormPosition {
     PRIVATE_RADIO_BUTTON(475, 400, 75, 20),
 
     NEXT_BUTTON(400, 250, 60, 20),
-    LOGIN_BUTTON(400, 300, 60, 20),
-    REGISTER_BUTTON(400, 450, 60, 20),
-    BACK_BUTTON(700, 540, 60, 20);
+    LOGIN_BUTTON(400, 300, 70, 20),
+    REGISTER_BUTTON(400, 450, 80, 20),
+    BACK_BUTTON(700, 540, 80, 20),
+
+    //HomeView
+    HOME_LABEL(50, 50, 150, 20),
+    SETTING_BUTTON(650, 50, 100, 20),
+    COURSE_CARD(50, 150, 150, 200);
+
 
     final public int x;
     final public int y;
