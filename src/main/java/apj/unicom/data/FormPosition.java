@@ -61,6 +61,7 @@ public enum FormPosition {
     ADD_CHANNEL_SECTION_LABEL(600, 50, 150, 20),
     ADD_CHANNEL_SECTION_TEXT_FIELD(600, 100, 150, 20),
     ADD_CHANNEL_SEARCH_BUTTON(50, 150, 150, 20);
+    UPDATE_BUTTON(350, 450, 80, 20);
 
 
     final public int x;

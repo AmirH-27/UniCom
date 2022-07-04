@@ -29,7 +29,7 @@ public class SettingView extends JFrame {
     private JLabel lblStudentId, lblUserName, lblUserPass, lblConfirmPass, lblOldPass, lblPrivacy, lblTitle;
     private JTextField txtStudentId, txtUserName;
     private JPasswordField txtPass, txtConfirmPass, txtOldPass;
-    private JButton btnUpdate, btnBack, btnDelete;
+    private JButton btnUpdate, btnBack;
     private JRadioButton rbPublic, rbPrivate;
 
     private JCheckBox checkUpdatePass;
@@ -81,7 +81,6 @@ public class SettingView extends JFrame {
 
         btnUpdate = new JButton("Update");
         btnBack = new JButton("Back");
-        btnDelete = new JButton("Delete");
         rbPublic = new JRadioButton("Public");
         rbPrivate = new JRadioButton("Private");
         rbPublic.setSelected(user.isPublic());
@@ -113,7 +112,6 @@ public class SettingView extends JFrame {
         passwordFieldPositionBoundService.setPosition(txtOldPass, FormPosition.SETTINGS_OLDPASSWORD_TEXT_FIELD);
 
         checkBoxPositionBoundService.setPosition(checkUpdatePass, FormPosition.CHECK_BOX);
-        buttonPositionBoundService.setPosition(btnDelete, FormPosition.SETTINGS_UNCHECKED_DELETE_BUTTON);
         buttonPositionBoundService.setPosition(btnUpdate, FormPosition.SETTINGS_UNCHECKED_UPDATE_BUTTON);
         buttonPositionBoundService.setPosition(btnBack, FormPosition.BACK_BUTTON);
         radioButtonPositionBoundService.setPosition(rbPublic, FormPosition.SETTINGS_PUBLIC_RADIO_BUTTON);
@@ -131,7 +129,6 @@ public class SettingView extends JFrame {
         container.add(rbPublic);
         container.add(rbPrivate);
         container.add(btnUpdate);
-        container.add(btnDelete);
         container.add(btnBack);
     }
 
@@ -230,33 +227,12 @@ public class SettingView extends JFrame {
         validityService = userCredentialService::isValidUserPass;
         response = validityService.isValid();
 
-            btnUpdate.addActionListener(e -> {
-               if(checkUpdatePass.isSelected()){
-                   updateWithPass(h1);
-               }
-               else{
-                   updateWithoutPass(h1);
-               }
-            });
-
-        btnDelete.addActionListener(e->{
-            int option = JOptionPane.showConfirmDialog(
-                    container,
-                    "Are you sure you want to Delete this account?",
-                    "Exit",
-                    JOptionPane.YES_NO_OPTION);
-            if (option == JOptionPane.YES_OPTION) {
-                userCredential.setStudentId(txtStudentId.getText());
-                response = userCredentialDao.deleteUser(userCredential);
-                if(response == Response.SUCCESS){
-                    JOptionPane.showMessageDialog(null, "Delete Successful");
-                    dispose();
-                    h1.dispose();
-                    new LoginView();
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Delete Failed");
-                }
+        btnUpdate.addActionListener(e -> {
+            if(checkUpdatePass.isSelected()){
+                updateWithPass(h1);
+            }
+            else{
+                updateWithoutPass(h1);
             }
         });
         btnBack.addActionListener(e->{
@@ -269,27 +245,23 @@ public class SettingView extends JFrame {
         checkUpdatePass.addItemListener(e -> {
             if(checkUpdatePass.isSelected()) {
                 lblUserPass.setText("New Password");
-                buttonPositionBoundService.setPosition(btnDelete, FormPosition.DELETE_BUTTON);
                 buttonPositionBoundService.setPosition(btnUpdate, FormPosition.UPDATE_BUTTON);
                 container.add(lblConfirmPass);
                 container.add(txtConfirmPass);
                 container.add(lblOldPass);
                 container.add(txtOldPass);
                 container.add(btnUpdate);
-                container.add(btnDelete);
                 repaint();
                 revalidate();
             }
             else{
                 lblUserPass.setText("Password");
-                buttonPositionBoundService.setPosition(btnDelete, FormPosition.SETTINGS_UNCHECKED_DELETE_BUTTON);
                 buttonPositionBoundService.setPosition(btnUpdate, FormPosition.SETTINGS_UNCHECKED_UPDATE_BUTTON);
                 container.remove(lblConfirmPass);
                 container.remove(txtConfirmPass);
                 container.remove(lblOldPass);
                 container.remove(txtOldPass);
                 container.add(btnUpdate);
-                container.add(btnDelete);
                 repaint();
                 revalidate();
             }
