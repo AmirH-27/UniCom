@@ -11,14 +11,16 @@ public enum SqlQuery {
             "user_email," +
             "user_pass) VALUES (?,?,?,?,?)"),
 
-    UPDATE_USER("UPDATE users (" +
-            "student_id," +
-            "user_name," +
-            "isPublic, " +
-            "user_email," +
-            "user_pass) VALUES (?,?,?,?,?) WHERE student_id = ?"),
+    UPDATE_USER("UPDATE users SET " +
+            "user_name = ?, " +
+            "isPublic = ?, " +
+            "user_email = ?, " +
+            "user_pass = ? " +
+            "WHERE student_id = ?"),
 
-    //UserDao
+    DELETE_USER("Delete FROM users WHERE student_id = ?"),
+        //UserDao
+
     GET_USER("SELECT user_id, student_id, user_name, isPublic, user_email FROM users WHERE student_id = ?");
 
     private final String query;

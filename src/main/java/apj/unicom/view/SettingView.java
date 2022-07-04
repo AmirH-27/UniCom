@@ -25,7 +25,7 @@ public class SettingView extends JFrame {
     private JLabel lblStudentId, lblUserName, lblUserPass, lblConfirmPass, lblPrivacy, lblTitle;
     private JTextField txtStudentId, txtUserName;
     private JPasswordField txtPass, txtConfirmPass;
-    private JButton btnUpdate, btnBack;
+    private JButton btnUpdate, btnBack, btnDelete;
     private JRadioButton rbPublic, rbPrivate;
 
     private PositionBoundService<JLabel> labelPositionBoundService;
@@ -58,19 +58,20 @@ public class SettingView extends JFrame {
 
         lblStudentId = new JLabel("Student ID: ", SwingConstants.RIGHT);
         lblUserName = new JLabel("User Name: ", SwingConstants.RIGHT);
-//        lblUserPass = new JLabel("Password: ", SwingConstants.RIGHT);
-//        lblConfirmPass = new JLabel("Confirm Password: ", SwingConstants.RIGHT);
+        lblUserPass = new JLabel("Password: ", SwingConstants.RIGHT);
+        lblConfirmPass = new JLabel("Confirm Password: ", SwingConstants.RIGHT);
         lblPrivacy = new JLabel("Privacy: ", SwingConstants.RIGHT);
 
         txtStudentId = new JTextField(user.getStudentId());
         txtUserName = new JTextField(user.getUserName());
-//        txtPass = new JPasswordField();
-//        txtConfirmPass = new JPasswordField();
+        txtPass = new JPasswordField();
+        txtConfirmPass = new JPasswordField();
 
         txtStudentId.setEditable(false);
 
         btnUpdate = new JButton("Update");
         btnBack = new JButton("Back");
+        btnDelete = new JButton("Delete");
         rbPublic = new JRadioButton("Public");
         rbPrivate = new JRadioButton("Private");
         rbPublic.setSelected(user.isPublic());
@@ -81,24 +82,25 @@ public class SettingView extends JFrame {
 
         labelPositionBoundService = new PositionBoundServiceImp<>();
         textFieldPositionBoundService = new PositionBoundServiceImp<>();
-//        passwordFieldPositionBoundService = new PositionBoundServiceImp<>();
+        passwordFieldPositionBoundService = new PositionBoundServiceImp<>();
         buttonPositionBoundService = new PositionBoundServiceImp<>();
         radioButtonPositionBoundService = new PositionBoundServiceImp<>();
 
         labelPositionBoundService.setPosition(lblTitle, FormPosition.TITLE_LABEL);
         labelPositionBoundService.setPosition(lblStudentId, FormPosition.STUDENT_ID_LABEL);
         labelPositionBoundService.setPosition(lblUserName, FormPosition.USER_NAME_LABEL);
-//        labelPositionBoundService.setPosition(lblUserPass, FormPosition.REGISTER_PASSWORD_LABEL);
-//        labelPositionBoundService.setPosition(lblConfirmPass, FormPosition.CONFIRM_PASSWORD_LABEL);
+        labelPositionBoundService.setPosition(lblUserPass, FormPosition.REGISTER_PASSWORD_LABEL);
+        labelPositionBoundService.setPosition(lblConfirmPass, FormPosition.CONFIRM_PASSWORD_LABEL);
         labelPositionBoundService.setPosition(lblPrivacy, FormPosition.PRIVACY_LABEL);
 
         textFieldPositionBoundService.setPosition(txtStudentId, FormPosition.STUDENT_ID_TEXT_FIELD);
         textFieldPositionBoundService.setPosition(txtUserName, FormPosition.USER_NAME_TEXT_FIELD);
-//        passwordFieldPositionBoundService.setPosition(txtPass, FormPosition.REGISTER_PASSWORD_TEXT_FIELD);
-//        passwordFieldPositionBoundService.setPosition(txtConfirmPass, FormPosition.CONFIRM_PASSWORD_TEXT_FIELD);
+        passwordFieldPositionBoundService.setPosition(txtPass, FormPosition.REGISTER_PASSWORD_TEXT_FIELD);
+        passwordFieldPositionBoundService.setPosition(txtConfirmPass, FormPosition.CONFIRM_PASSWORD_TEXT_FIELD);
 
         buttonPositionBoundService.setPosition(btnUpdate, FormPosition.REGISTER_BUTTON);
         buttonPositionBoundService.setPosition(btnBack, FormPosition.BACK_BUTTON);
+        buttonPositionBoundService.setPosition(btnDelete, FormPosition.DELETE_BUTTON);
         radioButtonPositionBoundService.setPosition(rbPublic, FormPosition.PUBLIC_RADIO_BUTTON);
         radioButtonPositionBoundService.setPosition(rbPrivate, FormPosition.PRIVATE_RADIO_BUTTON);
 
@@ -115,6 +117,7 @@ public class SettingView extends JFrame {
         container.add(rbPublic);
         container.add(rbPrivate);
         container.add(btnUpdate);
+        container.add(btnDelete);
         container.add(btnBack);
     }
     private void initializeComponents() {
@@ -130,10 +133,11 @@ public class SettingView extends JFrame {
         initializeView();
 
         btnUpdate.addActionListener(e -> {
-            userCredential.setUserEmail();
             userCredential.setStudentId(txtStudentId.getText());
             userCredential.setUserName(txtUserName.getText());
             userCredential.setPublic(rbPublic.isSelected());
+            userCredential.setUserEmail();
+            userCredential.setUserPass(String.valueOf(txtPass.getPassword()));
             response = userCredentialDao.updateUser(userCredential);
             if(response == Response.SUCCESS){
                 JOptionPane.showMessageDialog(null, "Update Successful");
@@ -142,6 +146,25 @@ public class SettingView extends JFrame {
                 repaint();
             }else{
                 JOptionPane.showMessageDialog(null, "Update Failed");
+            }
+        });
+        btnDelete.addActionListener(e->{
+            int option = JOptionPane.showConfirmDialog(
+                    container,
+                    "Are you sure you want to Delete this account?",
+                    "Exit",
+                    JOptionPane.YES_NO_OPTION);
+            if (option == JOptionPane.YES_OPTION) {
+                userCredential.setStudentId(txtStudentId.getText());
+                response = userCredentialDao.deleteUser(userCredential);
+                if(response == Response.SUCCESS){
+                    JOptionPane.showMessageDialog(null, "Delete Successful");
+                    dispose();
+                    new LoginView();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Delete Failed");
+                }
             }
         });
 

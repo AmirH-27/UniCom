@@ -45,7 +45,6 @@ public class UserCredentialDaoImp implements UserCredentialDao {
     public Response updateUser(UserCredential userCredential) {
         int updateStatus = jdbcTemplate.update(
                 SqlQuery.UPDATE_USER.getQuery(),
-                userCredential.getStudentId(),
                 userCredential.getUserName(),
                 userCredential.isPublic(),
                 userCredential.getUserEmail(),
@@ -57,7 +56,11 @@ public class UserCredentialDaoImp implements UserCredentialDao {
 
     @Override
     public Response deleteUser(UserCredential userCredential) {
-        return Response.SUCCESS;
+        int deleteStatus = jdbcTemplate.update(
+                SqlQuery.DELETE_USER.getQuery(),
+                userCredential.getStudentId()
+        );
+        return deleteStatus == 1 ? Response.SUCCESS : Response.UPDATE_FAIL;
     }
 }
 

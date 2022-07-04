@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update login view">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" afterDir="false" />
+    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="fix home view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/FormPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/FormPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/Response.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +43,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "spring.configuration.checksum": "09aff6ea82ff5a39272f5167ff3e641b"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apj.unicom.App" />
@@ -88,6 +89,7 @@
       <workItem from="1656187344487" duration="294000" />
       <workItem from="1656187666433" duration="1123000" />
       <workItem from="1656198937961" duration="8936000" />
+      <workItem from="1656908242538" duration="2049000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1655761962902</created>
@@ -159,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656116266650</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix home view">
+      <created>1656906385177</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1656906385177</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +184,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init project" />
@@ -187,6 +195,7 @@
     <MESSAGE value="delete dbo" />
     <MESSAGE value="add user dao" />
     <MESSAGE value="update login view" />
-    <option name="LAST_COMMIT_MESSAGE" value="update login view" />
+    <MESSAGE value="fix home view" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix home view" />
   </component>
 </project>

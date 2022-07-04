@@ -29,7 +29,10 @@ public enum FormPosition {
     //HomeView
     HOME_LABEL(50, 50, 150, 20),
     SETTING_BUTTON(650, 50, 100, 20),
-    COURSE_CARD(50, 150, 150, 200);
+    COURSE_CARD(50, 150, 150, 200),
+
+    //SettingView
+    DELETE_BUTTON(500, 450, 80, 20);
 
 
     final public int x;
