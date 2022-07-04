@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="fix home view">
+    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update settings with &amp; without password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/FormPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/FormPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/UserCredentialDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +45,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "spring.configuration.checksum": "09aff6ea82ff5a39272f5167ff3e641b"
   }
@@ -89,7 +89,8 @@
       <workItem from="1656187344487" duration="294000" />
       <workItem from="1656187666433" duration="1123000" />
       <workItem from="1656198937961" duration="8936000" />
-      <workItem from="1656908242538" duration="2049000" />
+      <workItem from="1656908242538" duration="2450000" />
+      <workItem from="1656935280553" duration="16412000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1655761962902</created>
@@ -168,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656906385177</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add delete button on settingView">
+      <created>1656918378605</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1656918378605</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +204,8 @@
     <MESSAGE value="add user dao" />
     <MESSAGE value="update login view" />
     <MESSAGE value="fix home view" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix home view" />
+    <MESSAGE value="add delete button on settingView" />
+    <MESSAGE value="update settings with &amp; without password" />
+    <option name="LAST_COMMIT_MESSAGE" value="update settings with &amp; without password" />
   </component>
 </project>

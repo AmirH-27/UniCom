@@ -18,21 +18,28 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class SettingView extends JFrame {
     //User user;
     private Container container;
-    private JLabel lblStudentId, lblUserName, lblUserPass, lblConfirmPass, lblPrivacy, lblTitle;
+    private JLabel lblStudentId, lblUserName, lblUserPass, lblConfirmPass, lblOldPass, lblPrivacy, lblTitle;
     private JTextField txtStudentId, txtUserName;
-    private JPasswordField txtPass, txtConfirmPass;
+    private JPasswordField txtPass, txtConfirmPass, txtOldPass;
     private JButton btnUpdate, btnBack, btnDelete;
     private JRadioButton rbPublic, rbPrivate;
+
+    private JCheckBox checkUpdatePass;
 
     private PositionBoundService<JLabel> labelPositionBoundService;
     private PositionBoundService<JTextField> textFieldPositionBoundService;
     private PositionBoundService<JPasswordField> passwordFieldPositionBoundService;
     private PositionBoundService<JButton> buttonPositionBoundService;
     private PositionBoundService<JRadioButton> radioButtonPositionBoundService;
+    private PositionBoundService<JCheckBox> checkBoxPositionBoundService;
 
     private ApplicationContext applicationContext;
     private UserCredentialDao userCredentialDao;
@@ -47,7 +54,7 @@ public class SettingView extends JFrame {
         setTitle("Profile, "+ user.getUserName());
         setSize(FormPosition.FORM_POSITION.width, FormPosition.FORM_POSITION.height);
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 
         container = getContentPane();
@@ -60,14 +67,17 @@ public class SettingView extends JFrame {
         lblUserName = new JLabel("User Name: ", SwingConstants.RIGHT);
         lblUserPass = new JLabel("Password: ", SwingConstants.RIGHT);
         lblConfirmPass = new JLabel("Confirm Password: ", SwingConstants.RIGHT);
+        lblOldPass = new JLabel("Current Password: ", SwingConstants.RIGHT);
         lblPrivacy = new JLabel("Privacy: ", SwingConstants.RIGHT);
 
         txtStudentId = new JTextField(user.getStudentId());
         txtUserName = new JTextField(user.getUserName());
         txtPass = new JPasswordField();
         txtConfirmPass = new JPasswordField();
-
+        txtOldPass = new JPasswordField();
         txtStudentId.setEditable(false);
+
+        checkUpdatePass = new JCheckBox("Update Password", false);
 
         btnUpdate = new JButton("Update");
         btnBack = new JButton("Back");
@@ -75,6 +85,7 @@ public class SettingView extends JFrame {
         rbPublic = new JRadioButton("Public");
         rbPrivate = new JRadioButton("Private");
         rbPublic.setSelected(user.isPublic());
+        rbPrivate.setSelected(!user.isPublic());
 
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(rbPublic);
@@ -85,24 +96,28 @@ public class SettingView extends JFrame {
         passwordFieldPositionBoundService = new PositionBoundServiceImp<>();
         buttonPositionBoundService = new PositionBoundServiceImp<>();
         radioButtonPositionBoundService = new PositionBoundServiceImp<>();
+        checkBoxPositionBoundService = new PositionBoundServiceImp<>();
 
-        labelPositionBoundService.setPosition(lblTitle, FormPosition.TITLE_LABEL);
-        labelPositionBoundService.setPosition(lblStudentId, FormPosition.STUDENT_ID_LABEL);
-        labelPositionBoundService.setPosition(lblUserName, FormPosition.USER_NAME_LABEL);
-        labelPositionBoundService.setPosition(lblUserPass, FormPosition.REGISTER_PASSWORD_LABEL);
-        labelPositionBoundService.setPosition(lblConfirmPass, FormPosition.CONFIRM_PASSWORD_LABEL);
-        labelPositionBoundService.setPosition(lblPrivacy, FormPosition.PRIVACY_LABEL);
+        labelPositionBoundService.setPosition(lblTitle, FormPosition.SETTING_TITLE_LABEL);
+        labelPositionBoundService.setPosition(lblStudentId, FormPosition.SETTINGS_STUDENTID_LABEL);
+        labelPositionBoundService.setPosition(lblUserName, FormPosition.SETTINGS_USERNAME_LABEL);
+        labelPositionBoundService.setPosition(lblUserPass, FormPosition.SETTINGS_PASSWORD_LABEL);
+        labelPositionBoundService.setPosition(lblConfirmPass, FormPosition.SETTINGS_CONFIRMPASSWORD_LABEL);
+        labelPositionBoundService.setPosition(lblOldPass, FormPosition.SETTINGS_OLDPASSWORD_LABEL);
+        labelPositionBoundService.setPosition(lblPrivacy, FormPosition.SETTINGS_PRIVACY_LABEL);
 
-        textFieldPositionBoundService.setPosition(txtStudentId, FormPosition.STUDENT_ID_TEXT_FIELD);
-        textFieldPositionBoundService.setPosition(txtUserName, FormPosition.USER_NAME_TEXT_FIELD);
-        passwordFieldPositionBoundService.setPosition(txtPass, FormPosition.REGISTER_PASSWORD_TEXT_FIELD);
-        passwordFieldPositionBoundService.setPosition(txtConfirmPass, FormPosition.CONFIRM_PASSWORD_TEXT_FIELD);
+        textFieldPositionBoundService.setPosition(txtStudentId, FormPosition.SETTINGS_STUDENTID_TEXT_FIELD);
+        textFieldPositionBoundService.setPosition(txtUserName, FormPosition.SETTINGS_USERNAME_TEXT_FIELD);
+        passwordFieldPositionBoundService.setPosition(txtPass, FormPosition.SETTINGS_PASSWORD_TEXT_FIELD);
+        passwordFieldPositionBoundService.setPosition(txtConfirmPass, FormPosition.SETTINGS_CONFIRMPASSWORD_TEXT_FIELD);
+        passwordFieldPositionBoundService.setPosition(txtOldPass, FormPosition.SETTINGS_OLDPASSWORD_TEXT_FIELD);
 
-        buttonPositionBoundService.setPosition(btnUpdate, FormPosition.REGISTER_BUTTON);
+        checkBoxPositionBoundService.setPosition(checkUpdatePass, FormPosition.CHECK_BOX);
+        buttonPositionBoundService.setPosition(btnDelete, FormPosition.SETTINGS_UNCHECKED_DELETE_BUTTON);
+        buttonPositionBoundService.setPosition(btnUpdate, FormPosition.SETTINGS_UNCHECKED_UPDATE_BUTTON);
         buttonPositionBoundService.setPosition(btnBack, FormPosition.BACK_BUTTON);
-        buttonPositionBoundService.setPosition(btnDelete, FormPosition.DELETE_BUTTON);
-        radioButtonPositionBoundService.setPosition(rbPublic, FormPosition.PUBLIC_RADIO_BUTTON);
-        radioButtonPositionBoundService.setPosition(rbPrivate, FormPosition.PRIVATE_RADIO_BUTTON);
+        radioButtonPositionBoundService.setPosition(rbPublic, FormPosition.SETTINGS_PUBLIC_RADIO_BUTTON);
+        radioButtonPositionBoundService.setPosition(rbPrivate, FormPosition.SETTINGS_PRIVATE_RADIO_BUTTON);
 
         container.add(lblTitle);
         container.add(lblStudentId);
@@ -111,8 +126,7 @@ public class SettingView extends JFrame {
         container.add(txtUserName);
         container.add(lblUserPass);
         container.add(txtPass);
-        container.add(lblConfirmPass);
-        container.add(txtConfirmPass);
+        container.add(checkUpdatePass);
         container.add(lblPrivacy);
         container.add(rbPublic);
         container.add(rbPrivate);
@@ -120,6 +134,7 @@ public class SettingView extends JFrame {
         container.add(btnDelete);
         container.add(btnBack);
     }
+
     private void initializeComponents() {
         applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
         userDao = applicationContext.getBean("userDao", UserDaoImp.class);
@@ -127,27 +142,103 @@ public class SettingView extends JFrame {
         userCredential = applicationContext.getBean("userCredential", UserCredential.class);
         userCredentialService = applicationContext.getBean("userCredentialService", UserCredentialServiceImp.class);
     }
-    public SettingView(User user) {
+
+    public void updateWithoutPass(HomeView h1){
+        userCredential.setStudentId(txtStudentId.getText());
+        userCredential.setUserName(txtUserName.getText());
+        if (rbPublic.isSelected()) {
+            userCredential.setPublic(rbPublic.isSelected());
+        } else {
+            userCredential.setPublic(rbPrivate.isSelected());
+        }
+        userCredential.setUserEmail();
+        userCredential.setUserPass(String.valueOf(txtPass.getPassword()));
+        validityService = () ->
+                (userCredentialService.isValidUserName() == Response.SUCCESS
+                        && userCredentialService.isValidUserPass() == Response.SUCCESS)
+                        ? Response.SUCCESS : Response.FAILURE;
+        response = validityService.isValid();
+        if(response == Response.SUCCESS) {
+            response = userCredentialDao.checkUserCredential(userCredential.getStudentId(), userCredential.getUserPass());
+            if(response == Response.SUCCESS) {
+                response = userCredentialDao.updateUser(userCredential);
+                if (response == Response.SUCCESS) {
+                    JOptionPane.showMessageDialog(null, "Update Successful");
+                    h1.user.setUserName(userCredential.getUserName());
+                    h1.user.setPublic(userCredential.isPublic());
+                    invalidate();
+                    validate();
+                    repaint();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Update Failed");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(container, response.getMessage());
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(container, response.getMessage());
+        }
+    }
+    public void updateWithPass(HomeView h1){
+        userCredential.setStudentId(txtStudentId.getText());
+        userCredential.setUserName(txtUserName.getText());
+        if (rbPublic.isSelected()) {
+            userCredential.setPublic(rbPublic.isSelected());
+        } else {
+            userCredential.setPublic(rbPrivate.isSelected());
+        }
+        userCredential.setUserEmail();
+        userCredential.setUserPass(String.valueOf(txtPass.getPassword()));
+        userCredential.setConfirmPass(String.valueOf(txtConfirmPass.getPassword()));
+        String currentPass = String.valueOf(txtOldPass.getPassword());
+        validityService = () ->
+                (userCredentialService.isValidUserName() == Response.SUCCESS
+                        && userCredentialService.isValidUserPass() == Response.SUCCESS
+                        && userCredentialService.isValidConfirmPass() == Response.SUCCESS)
+                        ? Response.SUCCESS : Response.FAILURE;
+        response = validityService.isValid();
+        if(response == Response.SUCCESS){
+            response = userCredentialDao.checkUserCredential(userCredential.getStudentId(), currentPass);
+            if(response == Response.SUCCESS){
+                response = userCredentialDao.updateUser(userCredential);
+                if (response == Response.SUCCESS) {
+                    JOptionPane.showMessageDialog(null, "Update Successful");
+                    h1.user.setUserName(userCredential.getUserName());
+                    h1.user.setPublic(userCredential.isPublic());
+                    invalidate();
+                    validate();
+                    repaint();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Update Failed");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(container, response.getMessage());
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(container, response.getMessage());
+        }
+    }
+    public SettingView(User user, HomeView h1) {
         this.user = user;
         initializeComponents();
         initializeView();
+        userCredential.setUserPass(String.valueOf(txtPass.getPassword()));
+        validityService = userCredentialService::isValidUserPass;
+        response = validityService.isValid();
 
-        btnUpdate.addActionListener(e -> {
-            userCredential.setStudentId(txtStudentId.getText());
-            userCredential.setUserName(txtUserName.getText());
-            userCredential.setPublic(rbPublic.isSelected());
-            userCredential.setUserEmail();
-            userCredential.setUserPass(String.valueOf(txtPass.getPassword()));
-            response = userCredentialDao.updateUser(userCredential);
-            if(response == Response.SUCCESS){
-                JOptionPane.showMessageDialog(null, "Update Successful");
-                invalidate();
-                validate();
-                repaint();
-            }else{
-                JOptionPane.showMessageDialog(null, "Update Failed");
-            }
-        });
+            btnUpdate.addActionListener(e -> {
+               if(checkUpdatePass.isSelected()){
+                   updateWithPass(h1);
+               }
+               else{
+                   updateWithoutPass(h1);
+               }
+            });
+
         btnDelete.addActionListener(e->{
             int option = JOptionPane.showConfirmDialog(
                     container,
@@ -160,11 +251,47 @@ public class SettingView extends JFrame {
                 if(response == Response.SUCCESS){
                     JOptionPane.showMessageDialog(null, "Delete Successful");
                     dispose();
+                    h1.dispose();
                     new LoginView();
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Delete Failed");
                 }
+            }
+        });
+        btnBack.addActionListener(e->{
+            dispose();
+            h1.invalidate();
+            h1.validate();
+            h1.repaint();
+        });
+
+        checkUpdatePass.addItemListener(e -> {
+            if(checkUpdatePass.isSelected()) {
+                lblUserPass.setText("New Password");
+                buttonPositionBoundService.setPosition(btnDelete, FormPosition.DELETE_BUTTON);
+                buttonPositionBoundService.setPosition(btnUpdate, FormPosition.UPDATE_BUTTON);
+                container.add(lblConfirmPass);
+                container.add(txtConfirmPass);
+                container.add(lblOldPass);
+                container.add(txtOldPass);
+                container.add(btnUpdate);
+                container.add(btnDelete);
+                repaint();
+                revalidate();
+            }
+            else{
+                lblUserPass.setText("Password");
+                buttonPositionBoundService.setPosition(btnDelete, FormPosition.SETTINGS_UNCHECKED_DELETE_BUTTON);
+                buttonPositionBoundService.setPosition(btnUpdate, FormPosition.SETTINGS_UNCHECKED_UPDATE_BUTTON);
+                container.remove(lblConfirmPass);
+                container.remove(txtConfirmPass);
+                container.remove(lblOldPass);
+                container.remove(txtOldPass);
+                container.add(btnUpdate);
+                container.add(btnDelete);
+                repaint();
+                revalidate();
             }
         });
 

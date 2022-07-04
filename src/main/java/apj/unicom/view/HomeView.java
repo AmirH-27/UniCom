@@ -13,7 +13,7 @@ public class HomeView extends JFrame {
     //To do: courses
     private Container container;
     private JLabel lblTitle;
-    private JButton btnSettings, btnBack;
+    private JButton btnSettings, btnLogout;
     private PositionBoundService<JLabel> labelPositionBoundService;
     private PositionBoundService<JButton> buttonPositionBoundService;
 
@@ -33,18 +33,18 @@ public class HomeView extends JFrame {
         lblTitle.setFont(new Font("Arial", Font.BOLD, 20));
 
         btnSettings = new JButton("Settings");
-        btnBack = new JButton("Logout");
+        btnLogout = new JButton("Logout");
 
         labelPositionBoundService = new PositionBoundServiceImp<>();
         buttonPositionBoundService = new PositionBoundServiceImp<>();
 
         labelPositionBoundService.setPosition(lblTitle, FormPosition.HOME_LABEL);
         buttonPositionBoundService.setPosition(btnSettings, FormPosition.SETTING_BUTTON);
-        buttonPositionBoundService.setPosition(btnBack, FormPosition.BACK_BUTTON);
+        buttonPositionBoundService.setPosition(btnLogout, FormPosition.BACK_BUTTON);
 
         container.add(lblTitle);
         container.add(btnSettings);
-        container.add(btnBack);
+        container.add(btnLogout);
     }
 
     public HomeView(User user) {
@@ -53,7 +53,12 @@ public class HomeView extends JFrame {
         initializeView();
 
         btnSettings.addActionListener(e -> {
-            new SettingView(user);
+            new SettingView(user, this);
         });
+
+        btnLogout.addActionListener(e -> {
+            dispose();
+        });
+
     }
 }
