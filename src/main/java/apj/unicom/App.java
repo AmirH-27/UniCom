@@ -15,7 +15,7 @@ public class App {
     public static void main( String[] args ) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
         UserDao userDao = applicationContext.getBean("userDao", UserDaoImp.class);
-        User user = userDao.getUser("19-41468-3");
+        User user = userDao.getUser("19-41429-3");
         System.out.println(user);
         //print all user info
         System.out.println(user.getUserId());
@@ -26,7 +26,6 @@ public class App {
         for(Channel channel : user.getChannels()){
             System.out.println(channel.getCourse().getCourseName());
         }
-
         SwingUtilities.invokeLater(LoginView::new);
     }
 }

@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update settings with &amp; without password">
-      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/CourseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/CourseDaoImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/ChannelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/FormPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/FormPosition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" afterDir="false" />
@@ -24,9 +24,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Class" />
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -44,14 +44,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;09aff6ea82ff5a39272f5167ff3e641b&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "09aff6ea82ff5a39272f5167ff3e641b"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apj.unicom.App" />
