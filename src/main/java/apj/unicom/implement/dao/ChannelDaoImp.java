@@ -4,12 +4,12 @@ import apj.unicom.dao.ChannelDao;
 import apj.unicom.data.Response;
 import apj.unicom.data.SqlQuery;
 import apj.unicom.domain.Channel;
+import apj.unicom.domain.Course;
 import apj.unicom.domain.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ChannelDaoImp implements ChannelDao {
     JdbcTemplate jdbcTemplate;
@@ -20,17 +20,62 @@ public class ChannelDaoImp implements ChannelDao {
 
     @Override
     public Response addChannel(int courseId, String channelSection) {
-        return null;
+        int insertStatus = jdbcTemplate.update(
+                SqlQuery.ADD_CHANNEL.getQuery(),
+                courseId,
+                channelSection);
+        return insertStatus==1 ? Response.SUCCESS : Response.CREAT_CHANNEL_FAIL;
     }
 
     @Override
     public Channel getChannel(int channelId) {
-        return null;
+        return jdbcTemplate.queryForObject(
+                SqlQuery.GET_CHANNEL.getQuery(),
+                ((rs, rowNum) -> new Channel(
+                        rs.getInt("channel_id"),
+                        rs.getString("channel_section"),
+                        rs.getInt("course_id"),
+                        rs.getString("semester_id")
+                )),
+                channelId);
     }
 
     @Override
-    public Channel searchChannel(int courseId, String channelSection) {
-        return null;
+    public Map<String, Object> searchChannel(Course course, String channelSection, int userId) {
+        Channel channel;
+        Response response;
+        try{
+            channel = jdbcTemplate.queryForObject(
+                    SqlQuery.SEARCH_CHANNEL.getQuery(),
+                    (rs, rowNum) -> new Channel(
+                            rs.getInt("channel_id"),
+                            rs.getString("channel_section"),
+                            rs.getInt("course_id"),
+                            rs.getString("semester_id")),
+                    course.getCourseId(), channelSection);
+            response = Response.CHANNEL_EXIST;
+        }catch (Exception e){
+            channel = new Channel();
+            channel.setCourseId(course.getCourseId());
+            channel.setChannelSection(channelSection);
+            channel.setCourse(course);
+            channel.setMembers(new ArrayList<>());
+            response = Response.CHANNEL_NOT_EXIST;
+        }
+        if(response == Response.CHANNEL_EXIST){
+            int count = jdbcTemplate.queryForObject(
+                    SqlQuery.SEARCH_ARCHIVE.getQuery(),
+                    Integer.class,
+                    userId,
+                    course.getCourseId());
+            if(count == 1){
+                response = Response.CHANNEL_ARCHIVED;
+            }
+        }
+        Map<String, Object> map = new HashMap<>(2);
+        map.put("channel", channel);
+        map.put("response", response);
+        return map;
     }
 
     @Override

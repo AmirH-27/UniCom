@@ -23,7 +23,13 @@ public enum Response {
     REGISTRATION_FAIL("Registration Fail"),
 
     //Update User Responses - User Credential Dao
-    UPDATE_FAIL("Update Fail");
+    UPDATE_FAIL("Update Fail"),
+
+    //Add Channel Responses - Channel Dao
+    CHANNEL_EXIST("Channel already exist"),
+    CHANNEL_NOT_EXIST("Channel not exist"),
+    CHANNEL_ARCHIVED("Channel is archived"),
+    CREAT_CHANNEL_FAIL("Create Channel Fail");
 
     private final String message;
 

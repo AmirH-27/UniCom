@@ -19,20 +19,34 @@ public enum SqlQuery {
             "WHERE student_id = ?"),
 
     DELETE_USER("Delete FROM users WHERE student_id = ?"),
-        //UserDao
 
+    //UserDao
     GET_USER("SELECT user_id, student_id, user_name, isPublic, user_email FROM users WHERE student_id = ?"),
     GET_USER_CHANNEL("SELECT * FROM channel WHERE " +
                 "channel_id IN (SELECT channel_id FROM channel_member WHERE user_id = ?) " +
                 "AND semester_id = (SELECT semester_id FROM semester WHERE is_current = true)"),
+    JOIN_CHANNEL("INSERT INTO channel_member (user_id, channel_id) VALUES (?, ?)"),
+    LEAVE_CHANNEL("DELETE FROM channel_member WHERE user_id = ? AND channel_id = ?"),
 
     //ChannelDao
     GET_CHANNEL("SELECT * FROM channel WHERE channel_id = ?"),
     GET_CHANNEL_MEMBERS("SELECT user_id, student_id, user_name, isPublic, user_email FROM users WHERE " +
             "user_id IN (SELECT user_id FROM channel_member WHERE channel_id = ?)"),
+    SEARCH_CHANNEL("SELECT * FROM channel WHERE " +
+            "channel_id = ? AND channel_section = ?"),
+    SEARCH_ARCHIVE("SELECT COUNT(*) FROM user_course_archive WHERE user_id = ? AND course_id = ? AND semester_id = " +
+            "(SELECT semester_id FROM semester WHERE is_current = true)"),
+    ADD_CHANNEL("INSERT INTO channel (" +
+            "channel_section, " +
+            "course_id, " +
+            "semester_id) VALUES (?,?,(SELECT semester_id FROM semester WHERE is_current = true))"),
 
     //CourseDao
-    GET_COURSE("SELECT * FROM courses WHERE course_id = ?");
+    GET_COURSE("SELECT * FROM courses WHERE course_id = ?"),
+    SEARCH_COURSE("SELECT * FROM courses WHERE course_name LIKE '%' || ? || '%'"),
+    ADD_COURSE_ARCHIVE("INSERT INTO user_course_archive (user_id, course_id, semester_id) " +
+            "VALUES (?,?,(SELECT semester_id FROM semester WHERE is_current = true))");
+
 
     private final String query;
 

@@ -50,11 +50,17 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public Response leaveChannel(int userId, int channelId) {
-        return null;
+        return jdbcTemplate.update(
+                SqlQuery.LEAVE_CHANNEL.getQuery(),
+                userId,
+                channelId) == 1 ? Response.SUCCESS : Response.FAILURE;
     }
 
     @Override
     public Response joinChannel(int userId, int channelId) {
-        return null;
+        return jdbcTemplate.update(
+                SqlQuery.JOIN_CHANNEL.getQuery(),
+                userId,
+                channelId) == 1 ? Response.SUCCESS : Response.FAILURE;
     }
 }
