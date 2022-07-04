@@ -30,7 +30,7 @@ public class App {
         for(Channel channel : user.getChannels()){
             System.out.println(channel.getCourse().getCourseName());
         }
-        channelDao.searchChannel(new Course(1,"ADVANCED JAVA", "CSE#30005"), "C", user.getUserId());
+        //channelDao.searchChannel(new Course(1,"ADVANCED JAVA", "CSE#30005"), "C", user.getUserId());
 
         SwingUtilities.invokeLater(LoginView::new);
     }
