@@ -1,11 +1,15 @@
 package apj.unicom.domain;
 
+import java.util.ArrayList;
+
 public class User {
     private int userId;
     private String studentId;
     private String userName;
     private boolean isPublic;
     private String userEmail;
+
+    private ArrayList<Channel> channels;
 
     public User(){ }
 
@@ -15,6 +19,7 @@ public class User {
         this.userName = userName;
         this.isPublic = isPublic;
         this.userEmail = userEmail;
+        channels = new ArrayList<>();
     }
 
     public int getUserId() {
@@ -55,5 +60,13 @@ public class User {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public ArrayList<Channel> getChannels() {
+        return channels;
+    }
+
+    public void setChannels(ArrayList<Channel> channels) {
+        this.channels = channels;
     }
 }
