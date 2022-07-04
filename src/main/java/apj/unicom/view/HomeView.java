@@ -51,7 +51,6 @@ public class HomeView extends JFrame {
             String btnName = "<html>"+channel.getCourse().getCourseName()+"<br>"+"["+channel.getChannelSection()+"]"+"</html>";
             int channelId = channel.getChannelId();
             JButton btn = new JButton(btnName);
-//            map.put(channelId, btn);
             if(x>=750){
                 x = 50;
                 y += 100;
@@ -64,6 +63,7 @@ public class HomeView extends JFrame {
             x = 50;
             y += 100;
         }
+        btnAddCourse = new JButton("Add Course");
         btnAddCourse.setBounds(x, y, 150, 150);
         x+=200;
         container = getContentPane();
@@ -74,7 +74,6 @@ public class HomeView extends JFrame {
 
         btnSettings = new JButton("Settings");
         btnLogout = new JButton("Logout");
-        btnAddCourse = new JButton("Add Course");
 
         labelPositionBoundService = new PositionBoundServiceImp<>();
         buttonPositionBoundService = new PositionBoundServiceImp<>();
@@ -110,7 +109,7 @@ public class HomeView extends JFrame {
             });
         }
         btnAddCourse.addActionListener(e -> {
-            new AddCourseView(this);
+           // new AddCourseView(this);
         });
 
 
