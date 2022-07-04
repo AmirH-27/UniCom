@@ -51,6 +51,7 @@ public class HomeView extends JFrame {
             String btnName = "<html>"+channel.getCourse().getCourseName()+"<br>"+"["+channel.getChannelSection()+"]"+"</html>";
             int channelId = channel.getChannelId();
             JButton btn = new JButton(btnName);
+//            map.put(channelId, btn);
             if(x>=750){
                 x = 50;
                 y += 100;
@@ -109,7 +110,7 @@ public class HomeView extends JFrame {
             });
         }
         btnAddCourse.addActionListener(e -> {
-           // new AddCourseView(this);
+            new AddChannelView(this);
         });
 
 
