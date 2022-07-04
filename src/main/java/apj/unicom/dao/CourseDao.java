@@ -1,9 +1,11 @@
 package apj.unicom.dao;
+import apj.unicom.data.Response;
 import apj.unicom.domain.Course;
 
 import java.util.ArrayList;
 
 public interface CourseDao {
-    public Course getCourse(int courseId);
-    public ArrayList<Course> searchCourse(String searchKey);
+    Course getCourse(int courseId);
+    ArrayList<Course> searchCourse(String searchKey);
+    Response addCourseArchive(int userId, int courseId);
 }
