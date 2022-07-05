@@ -102,7 +102,8 @@ public class HomeView extends JFrame {
         });
 
         btnLogout.addActionListener(e -> {
-            dispose();
+            this.dispose();
+            new LoginView();
         });
         for (JButton btn : btnList.keySet()) {
             btn.addActionListener(e -> {
