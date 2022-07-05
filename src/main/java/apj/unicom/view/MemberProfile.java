@@ -51,6 +51,7 @@ public class MemberProfile extends JFrame {
             userNameTextField = new JTextField();
             userNameTextField.setBounds(150, 50, 200, 30);
             userNameTextField.setText(user.getUserName());
+            userNameTextField.setEditable(false);
             container.add(userNameTextField);
 
             studentIdLabel = new JLabel("Student ID");
@@ -60,6 +61,7 @@ public class MemberProfile extends JFrame {
             studentIdTextField = new JTextField();
             studentIdTextField.setBounds(150, 100, 200, 30);
             studentIdTextField.setText(user.getStudentId());
+            studentIdTextField.setEditable(false);
             container.add(studentIdTextField);
 
             emailLabel = new JLabel("Email");
@@ -69,6 +71,7 @@ public class MemberProfile extends JFrame {
             emailTextField = new JTextField();
             emailTextField.setBounds(150, 150, 200, 30);
             emailTextField.setText(user.getStudentId() + "@student.aiub.edu");
+            emailTextField.setEditable(false);
             container.add(emailTextField);
             container.add(backButton);
         } else if (!user.isPublic()) {

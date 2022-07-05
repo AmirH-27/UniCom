@@ -6,8 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="fix channel search view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/ChannelDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/ChannelDaoImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/AddChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/AddChannelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/ChannelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/MemberListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/MemberListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/MemberProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/MemberProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/SettingView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,14 +197,7 @@
       <option name="project" value="LOCAL" />
       <updated>1656991256755</updated>
     </task>
-    <task id="LOCAL-00015" summary="fix channel search view">
-      <created>1656993612728</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1656993612728</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

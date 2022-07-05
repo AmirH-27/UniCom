@@ -12,10 +12,7 @@ import apj.unicom.service.PositionBoundService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class HomeView extends JFrame {
     User user;
@@ -50,6 +47,7 @@ public class HomeView extends JFrame {
         int y = 150;
         for (Channel channel : channelList) {
             String btnName = "<html>"+channel.getCourse().getCourseName()+"<br>"+"["+channel.getChannelSection()+"]"+"</html>";
+            System.out.println(btnName);
             int channelId = channel.getChannelId();
             JButton btn = new JButton(btnName);
 //            map.put(channelId, btn);

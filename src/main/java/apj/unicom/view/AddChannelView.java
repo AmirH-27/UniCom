@@ -159,6 +159,8 @@ public class AddChannelView extends JFrame {
         courseDao.addCourseArchive(user.getUserId(), channel.getCourseId());
         if(joinResponse == Response.SUCCESS){
             JOptionPane.showMessageDialog(null, "Successfully joined channel");
+            homeView.dispose();
+            new HomeView(user);
         }
         else{
             JOptionPane.showMessageDialog(null, "Failed to join channel");

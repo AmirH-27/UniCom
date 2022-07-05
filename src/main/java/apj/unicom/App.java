@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 public class App {
     public static void main( String[] args ) {
-//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
-//        UserDao userDao = applicationContext.getBean("userDao", UserDaoImp.class);
-//        User user = userDao.getUser("19-41468-1");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
+        UserDao userDao = applicationContext.getBean("userDao", UserDaoImp.class);
+        User user = userDao.getUser("19-41468-1");
 //        System.out.println(user);
 //        //print all user info
 //        System.out.println(user.getUserId());
@@ -32,9 +32,9 @@ public class App {
 //        }
 //        //channelDao.searchChannel(new Course(1,"ADVANCED JAVA", "CSE#30005"), "C", user.getUserId());
 
-        SwingUtilities.invokeLater(LoginView::new);
-//        SwingUtilities.invokeLater(() -> {
-//            new HomeView(user);
-//        });
+        //SwingUtilities.invokeLater(LoginView::new);
+        SwingUtilities.invokeLater(() -> {
+            new HomeView(user);
+        });
     }
 }
