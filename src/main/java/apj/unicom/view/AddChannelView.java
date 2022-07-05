@@ -169,6 +169,13 @@ public class AddChannelView extends JFrame {
         user = userDao.getUser(user.getStudentId());
         homeView.dispose();
         new HomeView(user);
+        container.remove(lblChannel);
+        container.remove(lblDownDivider);
+        container.remove(lblUpDivider);
+        container.remove(btnAdd);
+        repaint();
+        revalidate();
+        searchChannel();
     }
 
     private void addChannel(){

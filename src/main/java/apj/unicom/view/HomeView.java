@@ -53,17 +53,17 @@ public class HomeView extends JFrame {
             int channelId = channel.getChannelId();
             JButton btn = new JButton(btnName);
 //            map.put(channelId, btn);
-            if(x>=750){
+            if(x>600){
                 x = 50;
-                y += 100;
+                y += 200;
             }
             btn.setBounds(x, y, 150, 150);
             btnList.put(btn, channel);
             x+=200;
         }
-        if(x>=750){
+        if(x>600){
             x = 50;
-            y += 100;
+            y += 200;
         }
         btnAddCourse = new JButton("Add Course");
         btnAddCourse.setBounds(x, y, 150, 150);
