@@ -29,7 +29,11 @@ public enum Response {
     CHANNEL_EXIST("Channel already exist"),
     CHANNEL_NOT_EXIST("Channel not exist"),
     CHANNEL_ARCHIVED("Channel is archived"),
-    CREAT_CHANNEL_FAIL("Create Channel Fail");
+    CREAT_CHANNEL_FAIL("Create Channel Fail"),
+
+    //Add Channel View Responses - Add Channel View
+    NO_COURSE_SELECTED("Select a valid course"),
+    INVALID_SECTION("Select a valid section");
 
     private final String message;
 

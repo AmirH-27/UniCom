@@ -30,13 +30,14 @@ public class CourseDaoImp implements CourseDao {
 
     @Override
     public ArrayList<Course> searchCourse(String searchKey) {
+        String searchKey1 = "%" + searchKey + "%";
         List<Course> courses = jdbcTemplate.query(
                 SqlQuery.SEARCH_COURSE.getQuery(),
                 ((rs, rowNum) -> new Course(
                         rs.getInt("course_id"),
                         rs.getString("course_name"),
                         rs.getString("course_code"))),
-                searchKey);
+                searchKey1);
         return courses.isEmpty() ? new ArrayList<>() : new ArrayList<>(courses);
     }
 

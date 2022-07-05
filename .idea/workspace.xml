@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update settings with &amp; without password">
+    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update channel search view">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/FormPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/FormPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/CourseDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/implement/dao/CourseDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/AddChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/AddChannelView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656918378605</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update channel search view">
+      <created>1656974740807</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656974740807</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,30 +216,16 @@
     <MESSAGE value="fix home view" />
     <MESSAGE value="add delete button on settingView" />
     <MESSAGE value="update settings with &amp; without password" />
-    <option name="LAST_COMMIT_MESSAGE" value="update settings with &amp; without password" />
+    <MESSAGE value="update channel search view" />
+    <option name="LAST_COMMIT_MESSAGE" value="update channel search view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/main/java/apj/unicom/data/SqlQuery.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

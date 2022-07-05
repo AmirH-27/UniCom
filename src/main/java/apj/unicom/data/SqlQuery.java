@@ -37,13 +37,13 @@ public enum SqlQuery {
     SEARCH_ARCHIVE("SELECT COUNT(*) FROM user_course_archive WHERE user_id = ? AND course_id = ? AND semester_id = " +
             "(SELECT semester_id FROM semester WHERE is_current = true)"),
     ADD_CHANNEL("INSERT INTO channel (" +
-            "channel_section, " +
             "course_id, " +
+            "channel_section, " +
             "semester_id) VALUES (?,?,(SELECT semester_id FROM semester WHERE is_current = true))"),
 
     //CourseDao
     GET_COURSE("SELECT * FROM courses WHERE course_id = ?"),
-    SEARCH_COURSE("SELECT * FROM courses WHERE course_name LIKE '%' || ? || '%'"),
+    SEARCH_COURSE("SELECT * FROM courses WHERE course_name LIKE ?"),
     ADD_COURSE_ARCHIVE("INSERT INTO user_course_archive (user_id, course_id, semester_id) " +
             "VALUES (?,?,(SELECT semester_id FROM semester WHERE is_current = true))");
 
