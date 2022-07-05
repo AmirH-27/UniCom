@@ -51,6 +51,7 @@ public class AddChannelView extends JFrame {
     private ArrayList<String> courseNames;
     private Course selectedCourse;
     private String selectedCourseName;
+    private String section;
     private InputValidityService validityService;
     private Response response;
     Response channelResponse;
@@ -167,7 +168,7 @@ public class AddChannelView extends JFrame {
         if(channelResponse == Response.CHANNEL_EXIST){
             joinChannel();
         }else{
-            channelDao.addChannel(selectedCourse.getCourseId(), channel.getChannelSection());
+            channel.setChannelId(channelDao.addChannel(selectedCourse.getCourseId(), channel.getChannelSection()));
             joinChannel();
         }
     }
@@ -195,7 +196,7 @@ public class AddChannelView extends JFrame {
     private void searchChannel(){
         getCourseByName();
         if(selectedCourse != null){
-            String section = txtEnterSection.getText().toUpperCase();
+            section = txtEnterSection.getText().toUpperCase();
             validityService = ()-> section.matches("[A-Z]{1,2}") ?
                         Response.SUCCESS : Response.INVALID_SECTION;
             response = validityService.isValid();

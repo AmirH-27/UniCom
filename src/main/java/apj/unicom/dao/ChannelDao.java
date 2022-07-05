@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface ChannelDao {
-    Response addChannel(int courseId, String channelSection);
+    int addChannel(int courseId, String channelSection);
     Channel getChannel(int channelId);
     Map<String, Object> searchChannel(Course course, String channelSection, int userId);
     ArrayList<User> getChannelMembers(int channelId);

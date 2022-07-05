@@ -19,12 +19,18 @@ public class ChannelDaoImp implements ChannelDao {
     }
 
     @Override
-    public Response addChannel(int courseId, String channelSection) {
+    public int addChannel(int courseId, String channelSection) {
         int insertStatus = jdbcTemplate.update(
                 SqlQuery.ADD_CHANNEL.getQuery(),
                 courseId,
                 channelSection);
-        return insertStatus==1 ? Response.SUCCESS : Response.CREAT_CHANNEL_FAIL;
+
+
+        int channelId = jdbcTemplate.queryForObject(
+                SqlQuery.GET_LAST_ID.getQuery(),
+                Integer.class);
+
+        return channelId;
     }
 
     @Override
