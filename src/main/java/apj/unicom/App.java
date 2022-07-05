@@ -21,7 +21,6 @@ public class App {
 //        UserDao userDao = applicationContext.getBean("userDao", UserDaoImp.class);
 //        User user = userDao.getUser("19-41468-1");
 //        System.out.println(user);
-//        //print all user info
 //        System.out.println(user.getUserId());
 //        System.out.println(user.getStudentId());
 //        System.out.println(user.getUserName());
@@ -30,11 +29,11 @@ public class App {
 //        for(Channel channel : user.getChannels()){
 //            System.out.println(channel.getCourse().getCourseName());
 //        }
-//        //channelDao.searchChannel(new Course(1,"ADVANCED JAVA", "CSE#30005"), "C", user.getUserId());
-
-        SwingUtilities.invokeLater(LoginView::new);
+//        channelDao.searchChannel(new Course(1,"ADVANCED JAVA", "CSE#30005"), "C", user.getUserId());
 //        SwingUtilities.invokeLater(() -> {
 //            new HomeView(user);
 //        });
+
+        SwingUtilities.invokeLater(LoginView::new);
     }
 }
