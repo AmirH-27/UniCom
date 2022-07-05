@@ -8,7 +8,7 @@ User crude with communication channel.
 ### Domain
 
 - [x] 1. User
-- [ ] 2. Channel
+- [x] 2. Channel
 - [ ] 3. Message
 
 ### View
@@ -57,7 +57,7 @@ User crude with communication channel.
 
 ### Dialog
 
-- [ ] 1. Add Channel
+- [x] 1. Add Channel
    - Course Searchbar Text Field (Top-Left)
    - Section Searchbar Text Field (Top-2nd Left)
    - Search Button (Top-Right)
@@ -84,7 +84,7 @@ User crude with communication channel.
    - Leave Dialog Button `onClick()->leaveChannel()->close dialog->move to home view`
    - Cancel Dialog Button `onClick()->close dialog`
 
-- [ ] 6. Invalid Input
+- [x] 6. Invalid Input
    - Error Text Label `Error: Invalid TYPE`
    - OK Dialog Button `onClick()->close dialog`
 
