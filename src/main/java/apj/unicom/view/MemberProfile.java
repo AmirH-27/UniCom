@@ -39,8 +39,10 @@ public class MemberProfile extends JFrame {
         rbPrivate = new JRadioButton("Private");
         rbPrivate.setSelected(!user.isPublic());
 
-        if(user.isPublic()) {
+        backButton = new JButton("Back");
+        backButton.setBounds(700, 540, 80, 20);
 
+        if(user.isPublic()) {
             userNameLabel = new JLabel("User Name");
             userNameLabel.setBounds(50, 50, 100, 30);
             container.add(userNameLabel);
@@ -67,10 +69,13 @@ public class MemberProfile extends JFrame {
             emailTextField.setBounds(150, 150, 200, 30);
             emailTextField.setText(user.getStudentId() + "@student.aiub.edu");
             container.add(emailTextField);
+            container.add(backButton);
         } else if (!user.isPublic()) {
             JOptionPane.showMessageDialog(null, "This user is private");
             this.dispose();
-
         }
+        backButton.addActionListener(e -> {
+            this.dispose();
+        });
     }
 }
