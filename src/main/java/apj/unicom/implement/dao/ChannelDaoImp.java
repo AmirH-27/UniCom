@@ -68,15 +68,13 @@ public class ChannelDaoImp implements ChannelDao {
             channel.setMembers(new ArrayList<>());
             response = Response.CHANNEL_NOT_EXIST;
         }
-        if(response == Response.CHANNEL_EXIST){
-            int count = jdbcTemplate.queryForObject(
+        int count = jdbcTemplate.queryForObject(
                     SqlQuery.SEARCH_ARCHIVE.getQuery(),
                     Integer.class,
                     userId,
                     course.getCourseId());
-            if(count == 1){
-                response = Response.CHANNEL_ARCHIVED;
-            }
+        if(count == 1){
+            response = Response.CHANNEL_ARCHIVED;
         }
         Map<String, Object> map = new HashMap<>(2);
         map.put("channel", channel);

@@ -33,7 +33,8 @@ public enum SqlQuery {
     GET_CHANNEL_MEMBERS("SELECT user_id, student_id, user_name, isPublic, user_email FROM users WHERE " +
             "user_id IN (SELECT user_id FROM channel_member WHERE channel_id = ?)"),
     SEARCH_CHANNEL("SELECT * FROM channel WHERE " +
-            "course_id = ? AND channel_section = ?"),
+            "course_id = ? AND channel_section = ? AND semester_id = " +
+            "(SELECT semester_id FROM semester WHERE is_current = true)"),
     SEARCH_ARCHIVE("SELECT COUNT(*) FROM user_course_archive WHERE user_id = ? AND course_id = ? AND semester_id = " +
             "(SELECT semester_id FROM semester WHERE is_current = true)"),
     ADD_CHANNEL("INSERT INTO channel (" +

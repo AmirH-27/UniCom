@@ -37,6 +37,7 @@ public class ChannelView extends JFrame {
         setTitle("UniCom");
         setSize(FormPosition.FORM_POSITION.width, FormPosition.FORM_POSITION.height);
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 

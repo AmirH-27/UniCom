@@ -54,6 +54,7 @@ public class LoginView extends JFrame {
         setTitle("Welcome to UniCom");
         setSize(FormPosition.FORM_POSITION.width, FormPosition.FORM_POSITION.height);
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 

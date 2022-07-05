@@ -61,6 +61,7 @@ public class AddChannelView extends JFrame {
         setSize(800, 600);
         setSize(FormPosition.ADD_CHANNEL_FORM_POSITION.width, FormPosition.ADD_CHANNEL_FORM_POSITION.height);
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 
@@ -162,6 +163,12 @@ public class AddChannelView extends JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Failed to join channel");
         }
+        container.remove(btnAdd);
+        repaint();
+        revalidate();
+        user = userDao.getUser(user.getStudentId());
+        homeView.dispose();
+        new HomeView(user);
     }
 
     private void addChannel(){

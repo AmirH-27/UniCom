@@ -31,17 +31,18 @@ public class HomeView extends JFrame {
     Map<JButton, Channel> btnList = new HashMap<>();
 
     private JPanel gridLayoutPanel;
-    private void initializeParameter() {
+    public void initializeParameter() {
         channelList = user.getChannels();
         size = channelList.size();
         row = (int) Math.ceil(size / n);
         col = 3;
     }
-    private void initializeView() {
+    public void initializeView() {
         setTitle("Home - " + user.getUserName());
         setSize(800, 600);
         setTitle("UniCom");
         setSize(FormPosition.FORM_POSITION.width, FormPosition.FORM_POSITION.height);
+        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

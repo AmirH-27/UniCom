@@ -54,6 +54,7 @@ public class SettingView extends JFrame {
         setTitle("Profile, "+ user.getUserName());
         setSize(FormPosition.FORM_POSITION.width, FormPosition.FORM_POSITION.height);
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 
