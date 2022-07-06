@@ -30,7 +30,7 @@ User crude with communication channel.
                 else->show invalid id dialog
     ```
 
-- [ ] 2. Home
+- [X] 2. Home
    - User Name Label `onClick()->show user settings dialog`
    - Available Course Tiles `onClick()->move to channel view`
    - Add Course Tile (+) `onClick()->show add channel dialog`
@@ -66,14 +66,14 @@ User crude with communication channel.
          - Course Name (Middle-Left)
          - Course Join Button (Middle-Right)
 
-- [ ] 2. User Settings
+- [x] 2. User Settings
    - TODO
        
-- [ ] 3. Member List
+- [x] 3. Member List
    - Member Name `if(public)->onClick()->show user info dialog | else->disabled`
    - Close Dialog Button `onClick()->close dialog`
    
-- [ ] 4. User Info
+- [x] 4. User Info
    - User Name Label 
    - User Student ID
    - User Email
@@ -89,6 +89,4 @@ User crude with communication channel.
    - OK Dialog Button `onClick()->close dialog`
 
 # Database
-![image](https://user-images.githubusercontent.com/65022657/175113560-efb98d65-3157-4852-8aa7-5b233206982b.png)
-
-
+![img.png](img.png)
