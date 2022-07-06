@@ -1,15 +1,9 @@
 package apj.unicom.view;
-
 import apj.unicom.data.FormPosition;
-import apj.unicom.data.Response;
 import apj.unicom.domain.Channel;
 import apj.unicom.domain.User;
-
 import apj.unicom.implement.service.PositionBoundServiceImp;
-
 import apj.unicom.service.PositionBoundService;
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -24,10 +18,7 @@ public class HomeView extends JFrame {
     private JButton btnSettings, btnLogout, btnAddCourse;
     private PositionBoundService<JLabel> labelPositionBoundService;
     private PositionBoundService<JButton> buttonPositionBoundService;
-
     Map<JButton, Channel> btnList = new HashMap<>();
-
-    private JPanel gridLayoutPanel;
     public void initializeParameter() {
         channelList = user.getChannels();
         size = channelList.size();
@@ -48,9 +39,7 @@ public class HomeView extends JFrame {
         for (Channel channel : channelList) {
             String btnName = "<html>"+channel.getCourse().getCourseName()+"<br>"+"["+channel.getChannelSection()+"]"+"</html>";
             System.out.println(btnName);
-            int channelId = channel.getChannelId();
             JButton btn = new JButton(btnName);
-//            map.put(channelId, btn);
             if(x>600){
                 x = 50;
                 y += 200;
@@ -112,9 +101,5 @@ public class HomeView extends JFrame {
         btnAddCourse.addActionListener(e -> {
             new AddChannelView(this);
         });
-
-
-
-
     }
 }
