@@ -35,9 +35,10 @@ public class ChannelDaoImp implements ChannelDao{
     @Override
     public Map<String, Object> searchChannel(Course course, String channelSection) {
         Session session = this.sessionFactory.getCurrentSession();
-        Query<Channel> channelQuery = session.createQuery("From Channel Where course_id = :course_id AND channel_section = :channel_section", Channel.class);
-        channelQuery.setParameter("course_id", course.getCourseId());
-        return null;
+        Query query = session.createQuery("from Channel where course = :course and channelSection = :channelSection");
+        query.setParameter("course", course);
+        query.setParameter("channelSection", channelSection);
+        return (Map<String, Object>) query.uniqueResult();
     }
 
     @Override

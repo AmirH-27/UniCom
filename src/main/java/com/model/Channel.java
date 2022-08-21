@@ -14,13 +14,14 @@ public class Channel {
     private int channelId;
     @Column(name="channel_section")
     private String channelSection;
-    @Column(name="course_id")
-    private int courseId;
-    @Column(name="semester_id")
-    private String semesterId;
-
+    @OneToOne
+    @JoinColumn(name="course_id")
     private Course course;
-    private ArrayList<User> members;
+    int courseId;
+
+    @Column(name="semester_id")
+    String semesterId;
+    //private ArrayList<User> members;
 
     public Channel() {
     }
@@ -72,11 +73,4 @@ public class Channel {
         this.course = course;
     }
 
-    public ArrayList<User> getMembers() {
-        return members;
-    }
-
-    public void setMembers(ArrayList<User> members) {
-        this.members = members;
-    }
 }

@@ -15,7 +15,7 @@
 <%--    <div th:if="${isLogin}"><title>Login</title></div>--%>
 </head>
 <body>
-<div (${not isCheck} ? 'hidden' )>
+<div ${not isCheck} ? ('hidden')>
     <h1>Welcome to UniCom</h1>
     <h1>${view}</h1>
     <form action="${pageContext.request.contextPath}/check" method="post" th:object="${user}">
@@ -25,7 +25,7 @@
         <input type="submit" value="Next" />
     </form>
 </div>
-    <div (${not isRegister} ? 'hidden' )>
+    <div ${not isRegister} ? ('hidden')>
     <h1>Registration</h1>
     <form action="${pageContext.request.contextPath}/register" method="post" th:object="${user}">
         <div>
