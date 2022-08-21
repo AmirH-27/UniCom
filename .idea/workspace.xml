@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="fix channel search view">
+    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update till mid">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +187,28 @@
       <option name="project" value="LOCAL" />
       <updated>1656991256755</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update till mid">
+      <created>1656996403027</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1656996403027</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update till mid">
+      <created>1656996414622</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1656996414622</updated>
+    </task>
+    <task id="LOCAL-00017" summary="update till mid">
+      <created>1656996752196</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1656996752196</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +240,7 @@
     <MESSAGE value="update settings with &amp; without password" />
     <MESSAGE value="update channel search view" />
     <MESSAGE value="fix channel search view" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix channel search view" />
+    <MESSAGE value="update till mid" />
+    <option name="LAST_COMMIT_MESSAGE" value="update till mid" />
   </component>
 </project>

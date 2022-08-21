@@ -1,0 +1,181 @@
+Index: src/main/java/apj/unicom/view/HomeView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package apj.unicom.view;\n\nimport apj.unicom.domain.User;\n\nimport javax.swing.*;\n\npublic class HomeView extends JFrame {\n    User user;\n\n    private void initializeView() {\n        setTitle(\"Home - \" + user.getUserName());\n        setSize(800, 600);\n        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        setVisible(true);\n    }\n\n    public HomeView(User user) {\n        this.user = user;\n\n        initializeView();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/apj/unicom/view/HomeView.java b/src/main/java/apj/unicom/view/HomeView.java
+--- a/src/main/java/apj/unicom/view/HomeView.java	(revision cba3ca076290ab07d25382008e7155d05c0b75ae)
++++ b/src/main/java/apj/unicom/view/HomeView.java	(date 1656801635809)
+@@ -8,7 +8,7 @@
+     User user;
+ 
+     private void initializeView() {
+-        setTitle("Home - " + user.getUserName());
++        setTitle("Home - " + user.getUserName()+ " [" + user.getStudentId() + "]");
+         setSize(800, 600);
+         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         setVisible(true);
+Index: src/main/java/apj/unicom/dao/ChannelDao.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/apj/unicom/dao/ChannelDao.java b/src/main/java/apj/unicom/dao/ChannelDao.java
+new file mode 100644
+--- /dev/null	(date 1656811406908)
++++ b/src/main/java/apj/unicom/dao/ChannelDao.java	(date 1656811406908)
+@@ -0,0 +1,10 @@
++package apj.unicom.dao;
++
++import apj.unicom.data.Response;
++import apj.unicom.domain.Channel;
++
++public interface ChannelDao {
++    public Response  addChannel(Channel channel);
++    public Channel getChannel(int channelId);
++    public Channel[] getAllChannels();
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"910e0f34-5d94-4f9e-a4bb-214d3afa1037\" name=\"Changes\" comment=\"update login view and error handling add sql query\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"spring-beans.schema\" />\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n        <option value=\"Enum\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2ArFWELCS87wkyJeYrCX0V3d3LO\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\n    &quot;spring.configuration.checksum&quot;: &quot;29569c9bb081b96f066a63b2ad149243&quot;\n  },\n  &quot;keyToStringList&quot;: {\n    &quot;DatabaseDriversLRU&quot;: [\n      &quot;mysql&quot;\n    ]\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"apj.unicom.App\" />\n      <module name=\"UniCom\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"apj.unicom.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.App\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SpringBeansView\">\n    <option name=\"beanDetailsProportion\" value=\"0.3\" />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"910e0f34-5d94-4f9e-a4bb-214d3afa1037\" name=\"Changes\" comment=\"\" />\n      <created>1655759827150</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1655759827150</updated>\n      <workItem from=\"1655759829854\" duration=\"101000\" />\n      <workItem from=\"1655761717950\" duration=\"1182000\" />\n      <workItem from=\"1655817018156\" duration=\"11691000\" />\n      <workItem from=\"1655911968273\" duration=\"343000\" />\n      <workItem from=\"1655912320439\" duration=\"35356000\" />\n      <workItem from=\"1656187344487\" duration=\"294000\" />\n      <workItem from=\"1656187666433\" duration=\"1123000\" />\n      <workItem from=\"1656198937961\" duration=\"9941000\" />\n      <workItem from=\"1656621374996\" duration=\"799000\" />\n      <workItem from=\"1656798456748\" duration=\"2639000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"init project\">\n      <created>1655761962902</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1655761962902</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"update user domain\">\n      <created>1655783516104</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1655783516104</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"update user dao\">\n      <created>1655797328380</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1655797328380</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"fix checkUserEmail\">\n      <created>1655819449514</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1655819449514</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"updated readme\">\n      <created>1655827948697</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1655827948697</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"update user login registration backend\">\n      <created>1655992644511</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1655992644511</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"delete dbo\">\n      <created>1655992837890</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1655992837890</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"add user dao\">\n      <created>1655999078695</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1655999078695</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"update login view\">\n      <created>1656116066081</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1656116066081</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"update login view\">\n      <created>1656116266650</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1656116266650</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"update login view and error handling add sql query\">\n      <created>1656210452093</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1656210452093</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"12\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"init project\" />\n    <MESSAGE value=\"update user domain\" />\n    <MESSAGE value=\"update user dao\" />\n    <MESSAGE value=\"fix checkUserEmail\" />\n    <MESSAGE value=\"updated readme\" />\n    <MESSAGE value=\"update user login registration backend\" />\n    <MESSAGE value=\"delete dbo\" />\n    <MESSAGE value=\"add user dao\" />\n    <MESSAGE value=\"update login view\" />\n    <MESSAGE value=\"update login view and error handling add sql query\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"update login view and error handling add sql query\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cba3ca076290ab07d25382008e7155d05c0b75ae)
++++ b/.idea/workspace.xml	(date 1656851318115)
+@@ -4,8 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update login view and error handling add sql query">
++    <list default="true" id="910e0f34-5d94-4f9e-a4bb-214d3afa1037" name="Changes" comment="update position service">
++      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/dao/ChannelDao.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/Channel.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/domain/Course.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/apj/unicom/view/HomeView.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -16,9 +20,9 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="spring-beans.schema" />
+-        <option value="Interface" />
++        <option value="Enum" />
+         <option value="Class" />
+-        <option value="Enum" />
++        <option value="Interface" />
+       </list>
+     </option>
+   </component>
+@@ -89,7 +93,8 @@
+       <workItem from="1656187666433" duration="1123000" />
+       <workItem from="1656198937961" duration="9941000" />
+       <workItem from="1656621374996" duration="799000" />
+-      <workItem from="1656798456748" duration="2639000" />
++      <workItem from="1656798456748" duration="6265000" />
++      <workItem from="1656850888755" duration="428000" />
+     </task>
+     <task id="LOCAL-00001" summary="init project">
+       <created>1655761962902</created>
+@@ -168,7 +173,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1656210452093</updated>
+     </task>
+-    <option name="localTasksCounter" value="12" />
++    <task id="LOCAL-00012" summary="update position service">
++      <created>1656801444054</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1656801444054</updated>
++    </task>
++    <option name="localTasksCounter" value="13" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -196,6 +208,7 @@
+     <MESSAGE value="add user dao" />
+     <MESSAGE value="update login view" />
+     <MESSAGE value="update login view and error handling add sql query" />
+-    <option name="LAST_COMMIT_MESSAGE" value="update login view and error handling add sql query" />
++    <MESSAGE value="update position service" />
++    <option name="LAST_COMMIT_MESSAGE" value="update position service" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/apj/unicom/domain/Channel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/apj/unicom/domain/Channel.java b/src/main/java/apj/unicom/domain/Channel.java
+new file mode 100644
+--- /dev/null	(date 1656807857636)
++++ b/src/main/java/apj/unicom/domain/Channel.java	(date 1656807857636)
+@@ -0,0 +1,10 @@
++package apj.unicom.domain;
++
++public class Channel {
++    private int channelId;
++    private String channelSection;
++    private int courseId;
++    private int semesterId;
++
++
++}
+Index: src/main/java/apj/unicom/domain/Course.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/apj/unicom/domain/Course.java b/src/main/java/apj/unicom/domain/Course.java
+new file mode 100644
+--- /dev/null	(date 1656807857633)
++++ b/src/main/java/apj/unicom/domain/Course.java	(date 1656807857633)
+@@ -0,0 +1,40 @@
++package apj.unicom.domain;
++
++public class Course {
++    private int courseId;
++    private String courseName;
++    private String courseCode;
++
++    public Course() {
++    }
++
++    public Course(int courseId, String courseName, String courseCode) {
++        this.courseId = courseId;
++        this.courseName = courseName;
++        this.courseCode = courseCode;
++    }
++
++    public int getCourseId() {
++        return courseId;
++    }
++
++    public void setCourseId(int courseId) {
++        this.courseId = courseId;
++    }
++
++    public String getCourseName() {
++        return courseName;
++    }
++
++    public void setCourseName(String courseName) {
++        this.courseName = courseName;
++    }
++
++    public String getCourseCode() {
++        return courseCode;
++    }
++
++    public void setCourseCode(String courseCode) {
++        this.courseCode = courseCode;
++    }
++}
