@@ -9,6 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -47,8 +49,8 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     public DataSource dataSource() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setDatabaseName("hibernate_tutorial");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/hibernate_tutorial");
+        dataSource.setDatabaseName("unicom");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/unicom");
         dataSource.setUser("root");
         dataSource.setPassword("root");
         return dataSource;
