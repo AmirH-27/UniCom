@@ -45,13 +45,18 @@ public class AppSecurityConfig{
           http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/login**").permitAll()
+                .antMatchers("/register**").permitAll()
+                .antMatchers("/check/**").permitAll()
                 .anyRequest().authenticated()
+                .and()
+                .headers().frameOptions().disable()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
                 .and()
-                .csrf().ignoringAntMatchers("/login/check","/register","/login")
+                .csrf().ignoringAntMatchers("/check","/register","/login")
                 .and()
                 .authenticationProvider(customAuthenticationProvider);
         return http.build();

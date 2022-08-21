@@ -5,27 +5,48 @@
   Time: 6:40 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <div th:if="${param.isCheck}"><title>Welcome to UniCom</title></div>
-    <div th:else if="${param.isRegister}"><title>Register</title></div>
-    <div th:else><title>Login</title></div>
+    <meta charset="ISO-8859-1">
+<%--    <div th:if="${isCheck}"><title>Welcome to UniCom</title></div>--%>
+<%--    <div th:if="${isRegister}"><title>Register</title></div>--%>
+<%--    <div th:if="${isLogin}"><title>Login</title></div>--%>
 </head>
 <body>
-<div th:if="${param.isCheck}">
-    <h>Welcome to UniCom</h>
-    <form th:action="@{/login/check}" method="post">
+<div (${not isCheck} ? 'hidden' )>
+    <h1>Welcome to UniCom</h1>
+    <h1>${view}</h1>
+    <form action="${pageContext.request.contextPath}/check" method="post" th:object="${user}">
         <div>
-            <input type="text" name="studentId" placeholder="Student ID"/>
+            <input type="text" th:field="*{studentID}" placeholder="Student ID"/><br><br>
         </div>
         <input type="submit" value="Next" />
     </form>
 </div>
+    <div (${not isRegister} ? 'hidden' )>
+    <h1>Registration</h1>
+    <form action="${pageContext.request.contextPath}/register" method="post" th:object="${user}">
+        <div>
+            <input type="text" th:field="*{studentID}" placeholder="Student ID"/><br><br>
+            <input type="text" th:field="*{userName}" placeholder="Full Name"/><br><br>
+            <input type="text" th:field="*{userEmail}" placeholder="Student Email"/><br><br>
+            <input type="password" th:field="*{userPass}" placeholder="Password"/><br><br>
+        </div>
+        <input type="submit" value="Registration" />
+    </form>
+    </div>
+    <div (${not isRegister} ? hidden )>
+    <h1>Login</h1>
+    <form action="${pageContext.request.contextPath}/login" method="post" th:object="${user}">
+        <div>
+            <input type="text" th:field="*{studentID}" placeholder="Student ID"/><br><br>
+            <input type="password" th:field="*{userPass}" placeholder="Password"/><br><br>
+        </div>
+        <input type="submit" value="Login" />
+    </form>
+    </div>
 <%--<div th:if="${param.error}">--%>
 <%--    Invalid username and password.</div>--%>
 <%--<div th:if="${param.logout}">--%>

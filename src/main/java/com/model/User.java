@@ -13,6 +13,7 @@ public class User {
     private int id;
 
     @Column(name = "student_id")
+    @NotNull(message = "Student ID is required")
     @Pattern(regexp = "[0-9]{2}-[0-9]{5}-[1-3]{1}", message = "Student ID must be in the format: xx-xxxxx-x")
     private String studentID;
 
@@ -21,14 +22,15 @@ public class User {
     private String userName;
 
     @Column(name = "isPublic")
-    @NotNull(message = "Profile Type is required")
     private boolean isPublic;
 
     @Column(name = "user_email")
+    @NotNull(message = "User email is required")
     @Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "Email must be valid")
     private String userEmail;
 
     @Column(name = "user_pass")
+    @NotNull(message = "User password is required")
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$", message = "Password must be at least 4 characters long and contain at least one upper case letter, one lower case letter, one number and one special character")
     private String userPass;
 
