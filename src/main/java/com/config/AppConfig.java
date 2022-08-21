@@ -74,4 +74,6 @@ public class AppConfig implements WebMvcConfigurer {
         transactionManager.setSessionFactory(sessionFactory().getObject());
         return transactionManager;
     }
+
+
 }

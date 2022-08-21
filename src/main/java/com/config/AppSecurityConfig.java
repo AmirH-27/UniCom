@@ -1,6 +1,7 @@
 package com.config;
 
 import com.service.CustomAuthenticationProvider;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -38,13 +39,21 @@ public class AppSecurityConfig{
 //                .authenticationProvider(customAuthenticationProvider);
 //    }
 
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
           http
-                .formLogin(form->form
-                        .loginPage("/login")
-                        .permitAll()
-                )
-                  .httpBasic(Customizer.withDefaults());
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .csrf().ignoringAntMatchers("/login/check","/register","/login")
+                .and()
+                .authenticationProvider(customAuthenticationProvider);
         return http.build();
     }
 
