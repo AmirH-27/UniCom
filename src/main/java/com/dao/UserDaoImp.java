@@ -41,4 +41,10 @@ public class UserDaoImp implements UserDao {
             return false;
         }
     }
+
+    @Override
+    public void save(User user) {
+        Session session = this.sessionFactory.getCurrentSession();
+        session.save(user);
+    }
 }

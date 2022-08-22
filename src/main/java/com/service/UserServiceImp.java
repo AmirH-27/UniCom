@@ -1,6 +1,7 @@
 package com.service;
 
 import com.dao.UserDao;
+import com.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -23,5 +24,10 @@ public class UserServiceImp implements UserService {
     @Override
     public boolean checkUser(String studentID) {
         return userDao.checkUser(studentID);
+    }
+
+    @Override
+    public void save(User user) {
+        userDao.save(user);
     }
 }
