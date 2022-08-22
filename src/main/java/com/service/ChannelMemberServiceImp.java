@@ -1,7 +1,7 @@
 package com.service;
 
 import com.dao.ChannelMemberDao;
-import com.model.ChannelMember;
+import com.model.MemberChannel;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -24,7 +24,7 @@ public class ChannelMemberServiceImp implements ChannelMemberService{
     }
 
     @Override
-    public ChannelMember get(int channelMemberId) {
+    public MemberChannel get(int channelMemberId) {
         return channelMemberDao.get(channelMemberId);
     }
 

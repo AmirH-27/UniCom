@@ -1,10 +1,8 @@
 package com.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import java.util.List;
 
-import java.util.ArrayList;
 @Entity
 @Table(name = "channel")
 public class Channel {
@@ -26,6 +24,10 @@ public class Channel {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="semester_id", insertable = false, updatable = false)
     private Semester semester;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "channel_id")
+    private List<ChannelMember> channelMembers;
 
     public Channel() {
     }
@@ -83,5 +85,13 @@ public class Channel {
 
     public void setSemester(Semester semester) {
         this.semester = semester;
+    }
+
+    public List<ChannelMember> getChannelMembers() {
+        return channelMembers;
+    }
+
+    public void setChannelMembers(List<ChannelMember> channelMembers) {
+        this.channelMembers = channelMembers;
     }
 }

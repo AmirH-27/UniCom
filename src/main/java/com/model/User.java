@@ -35,7 +35,7 @@ public class User {
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    private List<ChannelMember> channelMembers;
+    private List<MemberChannel> memberChannels;
 
     public int getId() {
         return id;
@@ -93,11 +93,11 @@ public class User {
         this.userPass = userPass;
     }
 
-    public List<ChannelMember> getChannelMembers() {
-        return channelMembers;
+    public List<MemberChannel> getMemberChannels() {
+        return memberChannels;
     }
 
-    public void setChannelMembers(List<ChannelMember> channelMembers) {
-        this.channelMembers = channelMembers;
+    public void setMemberChannels(List<MemberChannel> channelMembers) {
+        this.memberChannels = channelMembers;
     }
 }

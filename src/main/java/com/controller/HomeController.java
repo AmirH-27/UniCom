@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.model.Channel;
 import com.model.ChannelMember;
+import com.model.MemberChannel;
 import com.model.User;
 import com.service.UserService;
 import org.springframework.security.core.Authentication;
@@ -25,10 +25,13 @@ public class HomeController {
         System.out.println(id);
         User user = userService.get(id);
         System.out.println(user.getUserName());
-        System.out.println(user.getChannelMembers().size());
-        for(ChannelMember channelMember : user.getChannelMembers()) {
-            System.out.println(channelMember.getChannel().getCourse().getCourseName());
-            System.out.println(channelMember.getChannel().getSemester().isCurrent());
+        System.out.println(user.getMemberChannels().size());
+        for(MemberChannel memberChannel : user.getMemberChannels()) {
+            System.out.println(memberChannel.getChannel().getCourse().getCourseName());
+            System.out.println(memberChannel.getChannel().getSemester().isCurrent());
+            for(ChannelMember channelMember : memberChannel.getChannel().getChannelMembers()) {
+                System.out.println(channelMember.getUserDetails().getUserName());
+            }
         }
         return "home";
     }

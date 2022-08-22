@@ -1,6 +1,6 @@
 package com.dao;
 
-import com.model.ChannelMember;
+import com.model.MemberChannel;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -16,20 +16,20 @@ public class ChannelMemberDaoImp implements ChannelMemberDao {
     @Override
     public void addChannelMember(int channelId, int userId) {
         Session session = this.sessionFactory.getCurrentSession();
-        ChannelMember channelMember = new ChannelMember(channelId, userId);
+        MemberChannel channelMember = new MemberChannel(channelId, userId);
         session.save(channelMember);
     }
 
     @Override
     public void removeChannelMember(int channelId, int userId) {
         Session session = this.sessionFactory.getCurrentSession();
-        ChannelMember channelMember = new ChannelMember(channelId, userId);
+        MemberChannel channelMember = new MemberChannel(channelId, userId);
         session.delete(channelMember);
     }
 
     @Override
-    public ChannelMember get(int channelMemberId) {
+    public MemberChannel get(int channelMemberId) {
         Session session = this.sessionFactory.getCurrentSession();
-        return session.get(ChannelMember.class, channelMemberId);
+        return session.get(MemberChannel.class, channelMemberId);
     }
 }

@@ -1,9 +1,9 @@
 package com.service;
 
-import com.model.ChannelMember;
+import com.model.MemberChannel;
 
 public interface ChannelMemberService {
     void addChannelMember(int channelId, int userId);
     void removeChannelMember(int channelId, int userId);
-    ChannelMember get(int channelMemberId);
+    MemberChannel get(int channelMemberId);
 }

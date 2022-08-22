@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "channel_member")
-public class ChannelMember {
+public class MemberChannel {
 
     @Id
     @Column(name="channel_member_id")
@@ -18,8 +18,16 @@ public class ChannelMember {
     private int userId;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id", insertable = false, updatable = false)
-    private UserDetails userDetails;
+    @JoinColumn(name="channel_id", insertable = false, updatable = false)
+    private Channel channel;
+
+    public MemberChannel() {
+    }
+
+    public MemberChannel(int channelId, int userId) {
+        this.channelId = channelId;
+        this.userId = userId;
+    }
 
     public int getChannelMemberId() {
         return channelMemberId;
@@ -45,12 +53,11 @@ public class ChannelMember {
         this.userId = userId;
     }
 
-    public UserDetails getUserDetails() {
-        return userDetails;
+    public Channel getChannel() {
+        return channel;
     }
 
-    public void setUserDetails(UserDetails userDetails) {
-        this.userDetails = userDetails;
+    public void setChannel(Channel channel) {
+        this.channel = channel;
     }
 }
-
