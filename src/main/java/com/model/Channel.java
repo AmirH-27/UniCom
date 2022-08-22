@@ -14,14 +14,18 @@ public class Channel {
     private int channelId;
     @Column(name="channel_section")
     private String channelSection;
-    @OneToOne
-    @JoinColumn(name="course_id")
-    private Course course;
+    @Column(name="course_id")
     int courseId;
-
     @Column(name="semester_id")
     String semesterId;
-    //private ArrayList<User> members;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="course_id", insertable = false, updatable = false)
+    private Course course;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="semester_id", insertable = false, updatable = false)
+    private Semester semester;
 
     public Channel() {
     }
@@ -73,4 +77,11 @@ public class Channel {
         this.course = course;
     }
 
+    public Semester getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Semester semester) {
+        this.semester = semester;
+    }
 }

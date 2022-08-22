@@ -47,4 +47,18 @@ public class UserDaoImp implements UserDao {
         Session session = this.sessionFactory.getCurrentSession();
         session.save(user);
     }
+
+    @Override
+    public int findUserIDByStudentId(String student_id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query<User> userQuery = session.createQuery("From User Where student_id = :student_id", User.class);
+        userQuery.setParameter("student_id", student_id);
+        return userQuery.getSingleResult().getId();
+    }
+
+    @Override
+    public User get(int id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        return session.get(User.class, id);
+    }
 }

@@ -8,19 +8,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
+@Transactional
 public class CourseServiceImp implements CourseService {
     private CourseDao courseDao;
     public void setCourseDao(CourseDao courseDao) {
         this.courseDao = courseDao;
     }
     @Override
-    @Transactional
     public Course getCourse(int courseId) {
         return courseDao.getCourse(courseId);
     }
 
     @Override
-    @Transactional
     public List<Course> searchCourse(String searchKey) {
         return courseDao.searchCourse(searchKey);
     }

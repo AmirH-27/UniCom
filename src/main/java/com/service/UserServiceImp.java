@@ -30,4 +30,14 @@ public class UserServiceImp implements UserService {
     public void save(User user) {
         userDao.save(user);
     }
+
+    @Override
+    public int findUserIDByStudentId(String studentID) {
+        return userDao.findUserIDByStudentId(studentID);
+    }
+
+    @Override
+    public User get(int id) {
+        return userDao.get(id);
+    }
 }

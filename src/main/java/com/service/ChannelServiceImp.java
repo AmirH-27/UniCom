@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Map;
 @Service
+@Transactional
 public class ChannelServiceImp implements ChannelService {
 
     private ChannelDao channelDao;
@@ -18,25 +19,21 @@ public class ChannelServiceImp implements ChannelService {
         this.channelDao = channelDao;
     }
     @Override
-    @Transactional
     public void save(Channel channel) {
         this.channelDao.save(channel);
     }
 
     @Override
-    @Transactional
     public Channel get(int channelId) {
        return this.channelDao.get(channelId);
     }
 
     @Override
-    @Transactional
     public Map<String, Object> searchChannel(Course course, String channelSection) {
         return this.channelDao.searchChannel(course, channelSection);
     }
 
     @Override
-    @Transactional
     public List<User> getChannelMembers(int channelId) {
         return this.channelDao.getChannelMembers(channelId);
     }

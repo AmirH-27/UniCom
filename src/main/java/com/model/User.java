@@ -3,6 +3,7 @@ package com.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -31,6 +32,10 @@ public class User {
     @NotNull(message = "User password is required")
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$", message = "Password must be at least 4 characters long and contain at least one upper case letter, one lower case letter, one number and one special character")
     private String userPass;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private List<ChannelMember> channelMembers;
 
     public int getId() {
         return id;
@@ -86,5 +91,13 @@ public class User {
 
     public void setUserPass(String userPass) {
         this.userPass = userPass;
+    }
+
+    public List<ChannelMember> getChannelMembers() {
+        return channelMembers;
+    }
+
+    public void setChannelMembers(List<ChannelMember> channelMembers) {
+        this.channelMembers = channelMembers;
     }
 }
