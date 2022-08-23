@@ -1,10 +1,13 @@
 package com.service;
 
 import com.dao.UserDao;
+import com.model.MemberChannel;
 import com.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional

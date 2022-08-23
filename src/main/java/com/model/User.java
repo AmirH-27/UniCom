@@ -1,5 +1,8 @@
 package com.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -36,6 +39,11 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private List<MemberChannel> memberChannels;
+
+    @OneToMany()
+    @JoinColumn(name = "user_id")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<UserCourseArchive> userCourseArchives;
 
     public int getId() {
         return id;
@@ -99,5 +107,13 @@ public class User {
 
     public void setMemberChannels(List<MemberChannel> channelMembers) {
         this.memberChannels = channelMembers;
+    }
+
+    public List<UserCourseArchive> getUserCourseArchives() {
+        return userCourseArchives;
+    }
+
+    public void setUserCourseArchives(List<UserCourseArchive> userCourseArchives) {
+        this.userCourseArchives = userCourseArchives;
     }
 }

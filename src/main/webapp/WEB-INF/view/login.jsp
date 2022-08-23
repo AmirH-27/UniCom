@@ -342,7 +342,7 @@
                     <br/>
                 </div><br/>
                 <input type="submit" value="Registration" />
-            </form><br/>
+            </form>
             <form action="${pageContext.request.contextPath}/login" method="get">
                 <input type="submit" value="Back" />
             </form>
