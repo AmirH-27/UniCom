@@ -21,8 +21,9 @@
             stompClient.connect({}, function(frame) {
                 setConnected(true);
                 console.log('Connected: ' + frame);
-                stompClient.subscribe('${pageContext.request.contextPath}/topic/messages', function(greeting){
-                    console.log(greeting);
+                console.log('before');
+                stompClient.subscribe('/topic/messages', function(greeting){
+                    console.log('greeting');
                     showGreeting(JSON.parse(greeting.body).content);
                 });
             });

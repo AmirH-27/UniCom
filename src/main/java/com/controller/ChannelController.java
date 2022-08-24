@@ -45,12 +45,12 @@ public class ChannelController {
 
     @MessageMapping("/ws")
     @SendTo("/topic/messages")
-    public HelloMessage response(String message){
+    public Greeting response(HelloMessage helloMessage){
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return response(message);
+        return new Greeting("Hello, " + helloMessage.getName() + "!");
     }
 }
